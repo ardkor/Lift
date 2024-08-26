@@ -1,0 +1,4 @@
+repository "Lift@Crime_deck_stack@cloud"
+  path "/"
+    smartbranch "/main/work" 
+     
