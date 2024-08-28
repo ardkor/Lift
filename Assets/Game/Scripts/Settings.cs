@@ -1,8 +1,8 @@
-using System.Collections;
+//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.UI;
+//using UnityEngine.Audio;
+//using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -11,8 +11,6 @@ public class Settings : MonoBehaviour
     private Resolution[] _resolutions;
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
     // public Dropdown qualityDropdown;
-
-    
 
     void Start()
     {
@@ -37,14 +35,26 @@ public class Settings : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
-        Screen.fullScreen = isFullscreen;
+        //Screen.fullScreen = isFullscreen;
+        if (isFullscreen)
+        {
+            Resolution resolution = Screen.currentResolution;
+            Screen.SetResolution(resolution.width,
+                      resolution.height, FullScreenMode.ExclusiveFullScreen); // FullScreenMode.FullScreenWindow);
+            _resolutionDropdown.RefreshShownValue();
+        }
+        else
+        {
+           // FullScreenMode fullScreenMode = FullScreenMode.FullScreenWindow;
+            Screen.SetResolution(1280, 920, FullScreenMode.Windowed);
+        }
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = _resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width,
-                  resolution.height, Screen.fullScreen);
+                  resolution.height, FullScreenMode.ExclusiveFullScreen);
     }
 
 
