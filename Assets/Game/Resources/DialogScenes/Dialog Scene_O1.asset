@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f581c893ed58f469d1a30bdafc1bda, type: 3}
+  m_Name: Dialog Scene_O1
+  m_EditorClassIdentifier: 
+  _BranchIndex: 0
+  _dialog: {fileID: 11400000, guid: 905e072ce395d3c4d8fa5bd019bb32a3, type: 2}
+  _nextScenes:
+  - _buttonNum: 1
+    _dialogScene: {fileID: 0}
+  - _buttonNum: 2
+    _dialogScene: {fileID: 0}
