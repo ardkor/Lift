@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
+//using UnityEngine.Audio;
 using ChrisTutorials.Persistent;
 
 public class UIManager : MonoBehaviour
 {
-    public AudioMixer masterMixer;
+    //public AudioMixer masterMixer;
     //public AudioClip _audioClip;
 
     private void Start()
@@ -48,7 +48,6 @@ public class UIManager : MonoBehaviour
     }
     public void Test()
     {
-        //AudioManager.Instance.Play(_audioClip, transform);
         Debug.Log("button");
     }
 }

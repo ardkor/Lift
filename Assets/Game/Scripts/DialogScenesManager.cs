@@ -2,20 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Game.Data;
+
 
 public class DialogScenesManager : MonoBehaviour
 {
-    [SerializeField] private Button _firstFloor;
-    [SerializeField] private Button _secondFloor;
-    [SerializeField] private Button _thirdFloor;
-    [SerializeField] private Button _forthFloor;
+    [SerializeField] private DialogManager _dialogManager;
+    [SerializeField] private DialogScene _beginScene;
+    [SerializeField] private ButtonsManager _buttonsManager;
 
-    private DialogScene _currentScene;
+    private DialogScene _loadingScene;
+    [HideInInspector] public DialogScene _currentScene { get; private set; }
 
-    private void Awake()
+    private string branchIndex;
+
+    private void LoadScene() 
     {
-        //_firstFloor.onClick.AddListener(delegate { PlayDialogue1(); });
-        
+        _loadingScene = _beginScene;
+        branchIndex = PlayerPrefs.GetString("CurrentSceneIndex", "0");
+        foreach(char c in branchIndex)
+        {
+            if (branchIndex == "0")
+            {
+                break;
+            }
+            for (int i = 0; i < _loadingScene.NextScenes.Length; ++i)
+            {
+                if(_loadingScene.NextScenes[i].ButtonNum.ToString()[0] == c)
+                {
+                    _loadingScene = _loadingScene.NextScenes[i].DialogScene;
+                }
+            }
+        }
+        _currentScene = _loadingScene;
+    }
+    private void SaveScene() 
+    {
+        PlayerPrefs.SetString("CurrentSceneIndex", _currentScene.BranchIndex);
+    }
+
+    public void NewGame()
+    {
+        _currentScene = _beginScene;
+        _dialogManager.FirstPhrase();
+    }
+    public void NextDialog(int buttonNumber) 
+    {
+        buttonNumber--;
+        foreach (DialogScene.NextScene nextScene in _currentScene.NextScenes)
+        {
+            if (buttonNumber == ((int)nextScene.ButtonNum))
+            {
+                _currentScene = nextScene.DialogScene;
+                break;
+            }
+        }
+        SaveScene();
+        _buttonsManager.DisableFloorButtonChoice();
+        _dialogManager.SetIndexToFirstPhase();
     }
 }

@@ -236,7 +236,7 @@ namespace ChrisTutorials.Persistent
         /// </summary>
         public void SetBeginVolume()
         {
-            Debug.Log("master");
+            //Debug.Log("master");
             // Set the audio levels from player preferences
             int masterVolume = PlayerPrefs.GetInt("MasterVolume", 50);
             int soundVolume = PlayerPrefs.GetInt("SoundVolume", 50);
