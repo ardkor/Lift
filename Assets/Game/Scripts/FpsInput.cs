@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+/*using System.Collections;
+using System.Collections.Generic;*/
 using UnityEngine;
 using TMPro;
 
@@ -18,8 +18,9 @@ public class FpsLocker : MonoBehaviour
 
     private const string DefaultFpsStr = "60";
 
-    private void Start()
+    private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
         LoadFps();
     }
     public void SetFps()

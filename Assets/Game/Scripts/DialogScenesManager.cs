@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+/*using System.Collections;
+using System.Collections.Generic;*/
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 
 public class DialogScenesManager : MonoBehaviour
@@ -14,11 +14,22 @@ public class DialogScenesManager : MonoBehaviour
     [HideInInspector] public DialogScene _currentScene { get; private set; }
 
     private string branchIndex;
-
-    private void LoadScene() 
+    private const string firstSceneIndex = "0";
+    public void LoadFirstScene()
+    {
+        branchIndex = firstSceneIndex;
+        InstallCurrentScene();
+        _dialogManager.FirstPhrase();
+    }
+    public void LoadCurrentScene()
+    {
+        branchIndex = PlayerPrefs.GetString("CurrentSceneIndex", "0");
+        InstallCurrentScene();
+        _dialogManager.FirstPhrase();
+    }
+    private void InstallCurrentScene() 
     {
         _loadingScene = _beginScene;
-        branchIndex = PlayerPrefs.GetString("CurrentSceneIndex", "0");
         foreach(char c in branchIndex)
         {
             if (branchIndex == "0")
@@ -40,11 +51,6 @@ public class DialogScenesManager : MonoBehaviour
         PlayerPrefs.SetString("CurrentSceneIndex", _currentScene.BranchIndex);
     }
 
-    public void NewGame()
-    {
-        _currentScene = _beginScene;
-        _dialogManager.FirstPhrase();
-    }
     public void NextDialog(int buttonNumber) 
     {
         buttonNumber--;

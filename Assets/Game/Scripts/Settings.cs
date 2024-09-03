@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.Audio;
 //using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Settings : MonoBehaviour
@@ -64,11 +64,6 @@ public class Settings : MonoBehaviour
             QualitySettings.SetQualityLevel(qualityIndex);
 
         }*/
-
-    public void ExitSettings()
-    {
-        SceneManager.LoadScene("Level");
-    }
 
     public void SaveSettings()
     {
