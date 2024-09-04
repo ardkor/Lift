@@ -7,8 +7,9 @@ using TMPro;
 public class DialogManager : MonoBehaviour
 {
     [SerializeField] private DialogScenesManager _dialogScenesManager;
-    [SerializeField] private TMP_Text _dialogText;
-
+    //[SerializeField] private TMP_Text _dialogText;
+    [SerializeField] private DialogueManager _dialogueManager;
+    private string _futureText;
     private int _currentPhraseIndex;
 
     public delegate void DialogEndedHandler();
@@ -30,7 +31,7 @@ public class DialogManager : MonoBehaviour
     }
     public void FirstPhrase()
     {
-        _dialogText.text = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
+        _futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
         _currentPhraseIndex = 0;
     }
     public void NextPhrase()
@@ -41,7 +42,8 @@ public class DialogManager : MonoBehaviour
             return;
         }
         _currentPhraseIndex++;
-        _dialogText.text = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
+        _futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
+        _dialogueManager.PlayMyDialogue(_futureText);
     }
 
 }

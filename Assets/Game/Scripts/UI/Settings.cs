@@ -18,14 +18,25 @@ public class Settings : MonoBehaviour
         List<string> options = new List<string>();
         _resolutions = Screen.resolutions;
         int currentResolutionIndex = 0;
+        RefreshRate _maxRefreshRate = _resolutions[0].refreshRateRatio;
 
-        for (int i = 0; i < _resolutions.Length; i++)
+        for (int i = 0; i<_resolutions.Length; i++)
         {
-            string option = _resolutions[i].width + "x" + _resolutions[i].height + " " + _resolutions[i].refreshRateRatio + "Hz";
-            options.Add(option);
-            if (_resolutions[i].width == Screen.currentResolution.width
-                  && _resolutions[i].height == Screen.currentResolution.height)
-                currentResolutionIndex = i;
+            if (_resolutions[i].refreshRateRatio.value > _maxRefreshRate.value)
+            {
+                _maxRefreshRate = _resolutions[i].refreshRateRatio;
+            }
+        }
+        for (int i = 0; i<_resolutions.Length; i++)
+        {
+            if(_resolutions[i].refreshRateRatio.value == _maxRefreshRate.value)
+            {
+                string option = _resolutions[i].width + "x" + _resolutions[i].height + " " + _resolutions[i].refreshRateRatio + "Hz";
+                options.Add(option);
+                if (_resolutions[i].width == Screen.currentResolution.width
+                      && _resolutions[i].height == Screen.currentResolution.height)
+                    currentResolutionIndex = i;
+            }
         }
 
         _resolutionDropdown.AddOptions(options);
