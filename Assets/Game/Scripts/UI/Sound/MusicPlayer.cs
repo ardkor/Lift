@@ -1,7 +1,7 @@
 using UnityEngine;
 using ChrisTutorials.Persistent;
 
-public class AudioPlayer : MonoBehaviour
+public class MusicPlayer : MonoBehaviour
 {
     private AudioSource _musicSource;
 

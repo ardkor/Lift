@@ -65,5 +65,12 @@ public class DialogScenesManager : MonoBehaviour
         SaveScene();
         _buttonsManager.DisableFloorButtonChoice();
         _dialogManager.SetIndexToFirstPhase();
+        if (_currentScene.NextScenes.Length == 1)
+        { 
+            PlayerPrefs.SetInt("SkippingButtonStage", 1);
+            PlayerPrefs.SetInt("SkippingButtonNum", (int)_currentScene.NextScenes[0].ButtonNum);
+            _dialogManager.SetSkippingButtonStage();
+            _dialogManager.SetSkippingButtonNum((int)_currentScene.NextScenes[0].ButtonNum);
+        }
     }
 }

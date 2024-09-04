@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bae31144bf7067448949f9cec2befe4, type: 3}
   m_Name: Dialog_KO1
   m_EditorClassIdentifier: 
+  persons: 0000000002000000
   _phrases:
   - _name: "\u041E_1:"
     _text: "\u0427\u0442\u043E \u0437\u0430...?\r\n"

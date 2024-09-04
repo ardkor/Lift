@@ -21,7 +21,6 @@ public class ButtonsManager : MonoBehaviour
 
     private void EnableFloorButtonChoice()
     {
-        //Debug.Log("e");
         TurnOnCurrentFloorButtons();
         DisableDialogButton();
     }
@@ -48,22 +47,12 @@ public class ButtonsManager : MonoBehaviour
         _dialogButton.gameObject.SetActive(false);
     }
 
-private void Awake()
-    {
-        //_firstFloor.onClick.AddListener(delegate { PlayDialogue1(); });
-    }
-
     public void TurnOffFloorButtons()
     {
         foreach (Button button in _floorButtons)
         {
             button.interactable = false;
         }
-    }
-
-    public void Test()
-    {
-        //TurnOnFloorButton(DialogScene.ButtonNumber.first);
     }
 
 }
