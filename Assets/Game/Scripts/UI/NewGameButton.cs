@@ -3,7 +3,7 @@ using UnityEngine;
 public class NewGameButton : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenu;
-    [SerializeField] private GameObject _gameCanvas;
+    [SerializeField] private GameObject _gameScreen;
     [SerializeField] private DialogScenesManager _dialogScenesManager;
     public void TryStartNewGame(GameObject confirmationPanel)
     {
@@ -19,7 +19,7 @@ public class NewGameButton : MonoBehaviour
 
     public void StartNewGame()
     {
-        _gameCanvas.SetActive(true);
+        _gameScreen.SetActive(true);
         _dialogScenesManager.LoadFirstScene();
         _mainMenu.SetActive(false);
     }

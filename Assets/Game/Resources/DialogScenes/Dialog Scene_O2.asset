@@ -15,7 +15,7 @@ MonoBehaviour:
   _branchIndex: 3
   _dialog: {fileID: 11400000, guid: f3708f63bd8d6934abfc82228aab4150, type: 2}
   _nextScenes:
+  - _buttonNum: 0
+    _dialogScene: {fileID: 11400000, guid: 5fb7f85c566135d4eabdddc437e3eeba, type: 2}
   - _buttonNum: 1
-    _dialogScene: {fileID: 0}
-  - _buttonNum: 2
-    _dialogScene: {fileID: 0}
+    _dialogScene: {fileID: 11400000, guid: 2f529578828736a4188f48c685949c92, type: 2}

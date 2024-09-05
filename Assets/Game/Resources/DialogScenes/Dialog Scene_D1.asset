@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4f581c893ed58f469d1a30bdafc1bda, type: 3}
-  m_Name: Dialog Scene_KO1
+  m_Name: Dialog Scene_D1
   m_EditorClassIdentifier: 
-  _branchIndex: 2
-  _dialog: {fileID: 11400000, guid: c6c18700bd500944c8a3283eeae87f64, type: 2}
-  _nextScenes:
-  - _buttonNum: 0
-    _dialogScene: {fileID: 11400000, guid: c74baaa1811f2ee468582178936255fe, type: 2}
-  - _buttonNum: 2
-    _dialogScene: {fileID: 11400000, guid: 71f82f6b98d39044bb8f4bff7ee78d1f, type: 2}
+  _branchIndex: 31
+  _dialog: {fileID: 11400000, guid: 474e0300319caa94e8e5f93d8a4586c2, type: 2}
+  _nextScenes: []

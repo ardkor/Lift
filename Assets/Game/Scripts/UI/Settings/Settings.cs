@@ -12,9 +12,8 @@ public class Settings : MonoBehaviour
     [SerializeField] private Toggle _toggle;
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
     [SerializeField] private TMP_Text _txt;
-
+    private const int minimalWidth = 960;
     private bool fullScreen;
-    // public Dropdown qualityDropdown;
     List<Resolution> resolutions = new List<Resolution>();
     void Start()
     {
@@ -23,42 +22,67 @@ public class Settings : MonoBehaviour
         _resolutions = Screen.resolutions;
        // int currentResolutionIndex = 0;
        // int optionNum = -1;
-        RefreshRate _maxRefreshRate = _resolutions[0].refreshRateRatio;
-
-        for (int i = 0; i<_resolutions.Length; i++)
-        {
-            if (_resolutions[i].refreshRateRatio.value > _maxRefreshRate.value)
-            {
-                _maxRefreshRate = _resolutions[i].refreshRateRatio;
-            }
-        }
-
+       // RefreshRate maxRefreshRate = _resolutions[0].refreshRateRatio;
+        Resolution prevResolution = _resolutions[0];
+        string option;
+        /*        for (int i = 0; i < _resolutions.Length; i++)
+                {
+                    if (_resolutions[i].refreshRateRatio.value > _maxRefreshRate.value)
+                    {
+                        _maxRefreshRate = _resolutions[i].refreshRateRatio;
+                    }
+                }*/
         for (int i = 0; i < _resolutions.Length; i++)
         {
-
-            if (_resolutions[i].refreshRateRatio.value >= _maxRefreshRate.value - 5)
+            if (_resolutions[i].width >= minimalWidth)
             {
-                string option = _resolutions[i].width + "x" + _resolutions[i].height + " " + _resolutions[i].refreshRateRatio + "Hz";
-                options.Add(option);
-                resolutions.Add(_resolutions[i]);
-
+                prevResolution = _resolutions[i];
+                break;
             }
         }
+        for (int i = 0; i < _resolutions.Length; i++)
+        {
+            if (_resolutions[i].width >= minimalWidth)
+            {
+                if (_resolutions[i].width == prevResolution.width && _resolutions[i].height == prevResolution.height)
+                {
+                    if (_resolutions[i].refreshRateRatio.value > prevResolution.refreshRateRatio.value)
+                    {
+                        prevResolution = _resolutions[i];
+                    }
+                }
+                else
+                {
+                    option = prevResolution.width + "x" + prevResolution.height + " " + ((int)prevResolution.refreshRateRatio.value) + "Hz";
+                    options.Add(option);
+                    resolutions.Add(prevResolution);
+                    prevResolution = _resolutions[i];
+                }
+            }
+        }
+        option = prevResolution.width + "x" + prevResolution.height + " " + ((int)prevResolution.refreshRateRatio.value) + "Hz";
+        options.Add(option);
+        resolutions.Add(prevResolution);
         _resolutionDropdown.AddOptions(options);
-        for (int i = 0; i < resolutions.Count; i++){
+        for (int i = 0; i < resolutions.Count; i++)
+        {
             if (PlayerPrefs.HasKey("ResolutionWidth"))
             {
                 if (resolutions[i].width == PlayerPrefs.GetInt("ResolutionWidth"))
                 {
-                    _txt.text = i.ToString();
-                    _resolutionDropdown.value = i;
+                    //_txt.text = PlayerPrefs.GetInt("ResolutionWidth").ToString();
+                     _resolutionDropdown.value = i;
                 }
             }
             else
             {
                 if (resolutions[i].width == Screen.width
                         && resolutions[i].height == Screen.height)
+                {
+                    //_txt.text = Screen.width.ToString();
                     _resolutionDropdown.value = i;
+
+                }
             }
         }
 
@@ -78,6 +102,7 @@ public class Settings : MonoBehaviour
                 _resolutionDropdown.value = i;
         }
         _resolutionDropdown.RefreshShownValue();
+        _txt.text = Screen.width.ToString();
         Screen.SetResolution(Screen.width, Screen.height, fullScreen);
     }
     public void SetFullscreen(bool isFullscreen)
@@ -85,7 +110,8 @@ public class Settings : MonoBehaviour
         //Debug.Log(Screen.fullScreen);
         //Screen.fullScreen = isFullscreen;
         fullScreen = isFullscreen;
-        Resolution resolution = Screen.currentResolution;
+        //Resolution resolution = Screen.currentResolution;
+        //_txt.text = Screen.currentResolution.ToString();
         if (isFullscreen)
         {
             SetNativeResolution();
@@ -93,8 +119,9 @@ public class Settings : MonoBehaviour
         else
         {
            // FullScreenMode fullScreenMode = fullScreen;
-            Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.Windowed);
-            //Screen.SetResolution(1280, 920, FullScreenMode.Windowed);
+            Screen.SetResolution(Screen.width, Screen.height, fullScreen);
+            //Screen.SetResolution(resolution.width, resolution.height, fullScreen);
+            //Screen.SetResolution(1280, 920, FullScreenMode.ExclusiveFullScreen);
         }
         SaveFullscreenPreference();
         SaveResolution(Screen.width, Screen.height);
@@ -106,12 +133,12 @@ public class Settings : MonoBehaviour
                System.Convert.ToInt32(Screen.fullScreen));
     }
 
-    public void SetResolution(int resolutionIndex) //??
+    public void SetResolution(int resolutionIndex) 
     {
         Resolution resolution = resolutions[resolutionIndex];
         fullScreen = false;
         _toggle.isOn = false;
-        Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.Windowed);
+        Screen.SetResolution(resolution.width, resolution.height, fullScreen);
         SaveFullscreenPreference();
         SaveResolution(resolution.width, resolution.height);
     }
@@ -133,11 +160,12 @@ public class Settings : MonoBehaviour
                 if (System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference")))
                 {
                     SetNativeResolution();
+                    return;
                 }
                 else
                 {
                     fullScreen = false;
-                    Screen.SetResolution(PlayerPrefs.GetInt("ResolutionWidth"), PlayerPrefs.GetInt("ResolutionHeight"), FullScreenMode.Windowed);
+                    Screen.SetResolution(PlayerPrefs.GetInt("ResolutionWidth"), PlayerPrefs.GetInt("ResolutionHeight"), fullScreen);
                     _toggle.isOn = false;
                     return;
                 }

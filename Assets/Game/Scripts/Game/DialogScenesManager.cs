@@ -10,6 +10,7 @@ public class DialogScenesManager : MonoBehaviour
     [SerializeField] private DialogScene _beginScene;
     [SerializeField] private ButtonsManager _buttonsManager;
 
+
     private DialogScene _loadingScene;
     [HideInInspector] public DialogScene _currentScene { get; private set; }
 
@@ -19,21 +20,26 @@ public class DialogScenesManager : MonoBehaviour
     {
         branchIndex = firstSceneIndex;
         InstallCurrentScene();
+        _dialogManager.ClearTextCloud();
         _dialogManager.FirstPhrase();
     }
     public void LoadCurrentScene()
     {
         branchIndex = PlayerPrefs.GetString("CurrentSceneIndex", "0");
         InstallCurrentScene();
+        _dialogManager.ClearTextCloud();
         _dialogManager.FirstPhrase();
     }
     private void InstallCurrentScene() 
     {
+        Debug.Log(branchIndex);
         _loadingScene = _beginScene;
         foreach(char c in branchIndex)
         {
+           // Debug.Log(c);
             if (branchIndex == "0")
             {
+               // Debug.Log(_loadingScene.BranchIndex);
                 break;
             }
             for (int i = 0; i < _loadingScene.NextScenes.Length; ++i)
@@ -41,14 +47,17 @@ public class DialogScenesManager : MonoBehaviour
                 if(_loadingScene.NextScenes[i].ButtonNum.ToString()[0] == c)
                 {
                     _loadingScene = _loadingScene.NextScenes[i].DialogScene;
+                   // Debug.Log(_loadingScene.BranchIndex);
                 }
             }
         }
         _currentScene = _loadingScene;
+        //Debug.Log(_loadingScene.BranchIndex);
     }
     private void SaveScene() 
     {
         PlayerPrefs.SetString("CurrentSceneIndex", _currentScene.BranchIndex);
+        //Debug.Log(PlayerPrefs.GetString("CurrentSceneIndex", "0"));
     }
 
     public void NextDialog(int buttonNumber) 
@@ -66,11 +75,11 @@ public class DialogScenesManager : MonoBehaviour
         _buttonsManager.DisableFloorButtonChoice();
         _dialogManager.SetIndexToFirstPhase();
         if (_currentScene.NextScenes.Length == 1)
-        { 
+        {
             PlayerPrefs.SetInt("SkippingButtonStage", 1);
-            PlayerPrefs.SetInt("SkippingButtonNum", (int)_currentScene.NextScenes[0].ButtonNum);
+            PlayerPrefs.SetInt("SkippingButtonNum", (int)_currentScene.NextScenes[0].ButtonNum + 1);
             _dialogManager.SetSkippingButtonStage();
-            _dialogManager.SetSkippingButtonNum((int)_currentScene.NextScenes[0].ButtonNum);
+            _dialogManager.SetSkippingButtonNum((int)_currentScene.NextScenes[0].ButtonNum + 1);
         }
     }
 }
