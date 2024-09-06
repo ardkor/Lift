@@ -58,7 +58,11 @@ public class DialogManager : MonoBehaviour
     }
     public void ClearTextCloud()
     {
-        _dialogText.text = string.Empty;
+        Debug.Log("Clear");
+        //_dialogText.text = string.Empty;
+        _dialogueManager.PlayMyDialogue(string.Empty);
+        /*_dialogText.gameObject.SetActive(false);
+        _dialogText.gameObject.SetActive(true);*/
     }
     public void FirstPhrase()
     {

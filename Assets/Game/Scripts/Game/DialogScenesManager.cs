@@ -32,7 +32,7 @@ public class DialogScenesManager : MonoBehaviour
     }
     private void InstallCurrentScene() 
     {
-        Debug.Log(branchIndex);
+       // Debug.Log(branchIndex);
         _loadingScene = _beginScene;
         foreach(char c in branchIndex)
         {
@@ -42,20 +42,29 @@ public class DialogScenesManager : MonoBehaviour
                // Debug.Log(_loadingScene.BranchIndex);
                 break;
             }
+            //Debug.Log(_loadingScene.NextScenes.Length);
             for (int i = 0; i < _loadingScene.NextScenes.Length; ++i)
             {
-                if(_loadingScene.NextScenes[i].ButtonNum.ToString()[0] == c)
+                //Debug.Log("for");
+                if (((int)_loadingScene.NextScenes[i].ButtonNum)+1.ToString()[0] == c)
                 {
+                    /*Debug.Log("if");
+                    Debug.Log(((int)_loadingScene.NextScenes[i].ButtonNum).ToString()[0]);
+                    Debug.Log(_loadingScene.NextScenes[i].DialogScene.BranchIndex);*/
                     _loadingScene = _loadingScene.NextScenes[i].DialogScene;
-                   // Debug.Log(_loadingScene.BranchIndex);
+                   /* Debug.Log("loading");
+                    Debug.Log(_loadingScene.BranchIndex);*/
                 }
             }
         }
         _currentScene = _loadingScene;
-        //Debug.Log(_loadingScene.BranchIndex);
+       /* Debug.Log("current");
+        Debug.Log(_currentScene.BranchIndex);*/
     }
     private void SaveScene() 
     {
+        Debug.Log("saving");
+        Debug.Log(_currentScene.BranchIndex);
         PlayerPrefs.SetString("CurrentSceneIndex", _currentScene.BranchIndex);
         //Debug.Log(PlayerPrefs.GetString("CurrentSceneIndex", "0"));
     }
