@@ -21,7 +21,7 @@ public class EffectsPlayer : MonoBehaviour
             case "Officer_mumbling_high":
                 _speechClip = _officerVoiceClips[1]; break;
             case "Detective_mumbling_high":
-                _speechClip = _detectiveVoiceClips[0]; break;
+                _speechClip = _detectiveVoiceClips[2]; break;
             default:
                 break;
         }

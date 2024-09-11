@@ -11,6 +11,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private EffectsPlayer _effectsPlayer;
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private GameObject _endScreen;
+    [SerializeField] private PersonsSpritesManager _personsSpritesManager;
+
     private string _futureText;
     private int _currentPhraseIndex;
     private bool _skippingButtonStage;
@@ -58,16 +60,17 @@ public class DialogManager : MonoBehaviour
     }
     public void ClearTextCloud()
     {
-        Debug.Log("Clear");
+        //Debug.Log("Clear");
         //_dialogText.text = string.Empty;
         _dialogueManager.PlayMyDialogue(string.Empty);
-        /*_dialogText.gameObject.SetActive(false);
+/*        _dialogText.gameObject.SetActive(false);
         _dialogText.gameObject.SetActive(true);*/
     }
     public void FirstPhrase()
     {
         _currentPhraseIndex = 0;
-        _futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
+        _personsSpritesManager.SetPersonSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSprite);
+        //_futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text; 
     }
     public void NextPhrase()
     {
@@ -82,7 +85,6 @@ public class DialogManager : MonoBehaviour
                 PlayerPrefs.SetInt("SkippingButtonStage", 0);
                 PlayerPrefs.SetInt("SkippingButtonNum", 0);
                 NextPhrase();
-                //_effectsPlayer.PlaySpeech(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSpeech);
                 return;
             }
             if (_dialogScenesManager._currentScene.NextScenes.Length == 0)
@@ -93,6 +95,9 @@ public class DialogManager : MonoBehaviour
             DialogEnded();
             return;
         }
+        //обновить спрайты
+        _effectsPlayer.PlaySpeech(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSpeech);
+        _personsSpritesManager.SetPersonSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSprite);
         _futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
         _currentPhraseIndex++;
         _dialogueManager.PlayMyDialogue(_futureText);

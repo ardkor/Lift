@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
-public class Person : MonoBehaviour
+//[System.Serializable]
+public class Person 
 {
-    
-    void Start()
-    {
-        
-    }
+    //private List<string> Speech;
+    //[Dropdown("Speech")] [SerializeField] public string personSpeech;
 }
