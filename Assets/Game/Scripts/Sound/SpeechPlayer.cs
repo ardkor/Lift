@@ -3,14 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using ChrisTutorials.Persistent;
 
-public class EffectsPlayer : MonoBehaviour
+public class SpeechPlayer : MonoBehaviour
 {
     [SerializeField] private AudioClip[] _officerVoiceClips;
     [SerializeField] private AudioClip[] _detectiveVoiceClips;
     [SerializeField] private AudioClip[] _killerVoiceClips;
 
     private AudioClip _speechClip;
+    private AudioSource _speechSource;
 
+    public void TryPauseSpeech()
+    {
+        if (_speechSource != null)
+        {
+            _speechSource.Pause();
+        }
+    }
+    public void TryContinueSpeech()
+    {
+        if (_speechSource != null)
+        {
+            _speechSource.Play();//delayed?
+        }
+    }
     //private AudioSource _speechSource;
     private void FindClip(string speech)
     {
@@ -28,10 +43,11 @@ public class EffectsPlayer : MonoBehaviour
     }
     public void PlaySpeech(string speech)
     {
+        Debug.Log("speech");
         FindClip(speech);
         if (_speechClip != null) 
         {
-            AudioManager.Instance.Play(_speechClip, transform, 1f, 1f);
+            _speechSource = AudioManager.Instance.Play(_speechClip, transform, 1f, 1f);
         }
     }
    

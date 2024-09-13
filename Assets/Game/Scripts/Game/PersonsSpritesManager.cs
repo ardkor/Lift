@@ -23,19 +23,45 @@ public class PersonsSpritesManager : MonoBehaviour
         _detectiveImage.enabled = false;
         _killerImage.enabled = false;
     }
-    public void ShowOfficer()
+    public void SetActivenessOfficer(bool isActive)
     {
-        _officerImage.enabled = true;
+        _officerImage.enabled = isActive;
     }
-    public void ShowDetective()
+    public void SetActivenessDetective(bool isActive)
     {
-        _detectiveImage.enabled = true;
+        _detectiveImage.enabled = isActive;
     }
-    public void ShowKiller()
+    public void SetActivenessKiller(bool isActive)
     {
-        _killerImage.enabled = true;
+        _killerImage.enabled = isActive;
     }
-    public void SetPersonSprite(string spriteName)
+    /*    public void SetPersonSprite(string spriteName)
+        {
+            switch (spriteName)
+            {
+                case "Officer_1":
+                    _officerImage.sprite = _officerSprites[0]; break;
+                case "Officer_2":
+                    _officerImage.sprite = _officerSprites[1]; break;
+                case "Officer_3":
+                    _officerImage.sprite = _officerSprites[2]; break;
+                case "Detective_1":
+                    _detectiveImage.sprite = _detectiveSprites[0]; break;
+                case "Detective_2":
+                    _detectiveImage.sprite = _detectiveSprites[1]; break;
+                case "Detective_3":
+                    _detectiveImage.sprite = _detectiveSprites[2]; break;
+                case "Killer_1":
+                    _killerImage.sprite = _killerSprites[0]; break;
+                case "Killer_2":
+                    _killerImage.sprite = _killerSprites[1]; break;
+                case "Killer_3":
+                    _killerImage.sprite = _killerSprites[2]; break;
+                default:
+                    break;
+            }
+        }*/
+    public void SetOfficerSprite(string spriteName)
     {
         switch (spriteName)
         {
@@ -45,12 +71,28 @@ public class PersonsSpritesManager : MonoBehaviour
                 _officerImage.sprite = _officerSprites[1]; break;
             case "Officer_3":
                 _officerImage.sprite = _officerSprites[2]; break;
+            default:
+                break;
+        }
+    }
+    public void SetDetectiveSprite(string spriteName)
+    {
+        switch (spriteName)
+        {
             case "Detective_1":
                 _detectiveImage.sprite = _detectiveSprites[0]; break;
             case "Detective_2":
                 _detectiveImage.sprite = _detectiveSprites[1]; break;
             case "Detective_3":
                 _detectiveImage.sprite = _detectiveSprites[2]; break;
+            default:
+                break;
+        }
+    }
+    public void SetKillerSprite(string spriteName)
+    {
+        switch (spriteName)
+        {
             case "Killer_1":
                 _killerImage.sprite = _killerSprites[0]; break;
             case "Killer_2":
@@ -61,46 +103,4 @@ public class PersonsSpritesManager : MonoBehaviour
                 break;
         }
     }
-   /* private void SetOfficerSprite(string spriteName)
-    {
-        switch (spriteName)
-        {
-            case "Officer_1":
-                _officerImage.sprite = _officerSprites[0]; break;
-            case "Officer_2":
-                _officerImage.sprite = _officerSprites[1]; break;
-            case "Officer_3":
-                _officerImage.sprite = _officerSprites[2]; break;
-            default:
-                break;
-        }
-    }
-    private void SetDetectiveSprite(string spriteName)
-    {
-        switch (spriteName)
-        {
-            case "Detective_1":
-                _detectiveImage.sprite = _detectiveSprites[0]; break;
-            case "Detective_2":
-                _detectiveImage.sprite = _detectiveSprites[1]; break;
-            case "Detective_3":
-                _detectiveImage.sprite = _detectiveSprites[2]; break;
-            default:
-                break;
-        }
-    }
-    private void SetKillerSprite(string spriteName)
-    {
-        switch (spriteName)
-        {
-            case "Killer_1":
-                _killerImage.sprite = _killerSprites[0]; break;
-            case "Killer_2":
-                _killerImage.sprite = _killerSprites[1]; break;
-            case "Killer_3":
-                _killerImage.sprite = _killerSprites[2]; break;
-            default:
-                break;
-        }
-    }*/
 }

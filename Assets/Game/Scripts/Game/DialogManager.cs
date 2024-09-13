@@ -8,7 +8,7 @@ public class DialogManager : MonoBehaviour
 {
     [SerializeField] private DialogScenesManager _dialogScenesManager;
     [SerializeField] private TMP_Text _dialogText;
-    [SerializeField] private EffectsPlayer _effectsPlayer;
+    [SerializeField] private SpeechPlayer _effectsPlayer;
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private PersonsSpritesManager _personsSpritesManager;
@@ -69,8 +69,21 @@ public class DialogManager : MonoBehaviour
     public void FirstPhrase()
     {
         _currentPhraseIndex = 0;
-        _personsSpritesManager.SetPersonSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSprite);
+        UpdateImages();
+
         //_futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text; 
+    }
+    private void UpdateImages() 
+    {
+        _personsSpritesManager.HideImages();
+        //установить позиции 
+        _personsSpritesManager.SetActivenessOfficer(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerActive);
+        _personsSpritesManager.SetActivenessDetective(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectiveActive);
+        _personsSpritesManager.SetActivenessKiller(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerActive);
+        //if (_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerSprite == 
+        _personsSpritesManager.SetOfficerSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerSprite);
+        _personsSpritesManager.SetDetectiveSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectiveSprite);
+        _personsSpritesManager.SetKillerSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerSprite);
     }
     public void NextPhrase()
     {
@@ -95,9 +108,9 @@ public class DialogManager : MonoBehaviour
             DialogEnded();
             return;
         }
-        //обновить спрайты
+        UpdateImages();
         _effectsPlayer.PlaySpeech(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSpeech);
-        _personsSpritesManager.SetPersonSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSprite);
+        
         _futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
         _currentPhraseIndex++;
         _dialogueManager.PlayMyDialogue(_futureText);

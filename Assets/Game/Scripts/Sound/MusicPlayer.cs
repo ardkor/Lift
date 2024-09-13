@@ -10,5 +10,18 @@ public class MusicPlayer : MonoBehaviour
     {
         _musicSource = AudioManager.Instance.PlayLoop(_musicClip, transform, 1f, 1f, true);
     }
-
+    public void TryPauseMusic()
+    {
+        if (_musicSource != null)
+        {
+            _musicSource.Pause();
+        }
+    }
+    public void TryContinueMusic()
+    {
+        if (_musicSource != null)
+        {
+            _musicSource.PlayDelayed(300f);//delayed םו הוכוטע?
+        }
+    }
 }

@@ -304,7 +304,7 @@ MonoBehaviour:
   _effectsPlayer: {fileID: 1513511542}
   _dialogueManager: {fileID: 1063005798}
   _endScreen: {fileID: 215670481}
-  _personsSpritesManager: {fileID: 0}
+  _personsSpritesManager: {fileID: 1019779647}
 --- !u!1 &215670481
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &338027032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1434,6 +1434,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573221802}
   m_CullTransparentMesh: 1
+--- !u!1 &574852491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574852492}
+  - component: {fileID: 574852493}
+  m_Layer: 5
+  m_Name: Player Controls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &574852492
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574852491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1555638470}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &574852493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574852491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4bfc8f6b33e0c849864e6be3183c402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exitConfirmation: {fileID: 3237031873253524315}
+  _menuEnterConfirmation: {fileID: 8304665595751980056}
+  _gameMenu: {fileID: 1737217431}
+  _mainMenu: {fileID: 4402525605720832045}
+  _pauseMenu: {fileID: 8898359778885925772}
+  _uiManager: {fileID: 1545356868}
+  _pauseGame: {fileID: 1562208197}
+  _continueGame: {fileID: 9124940012231831084}
 --- !u!1 &611632220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,58 +2408,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921188845}
   m_CullTransparentMesh: 1
---- !u!1 &930882026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 930882027}
-  - component: {fileID: 930882028}
-  m_Layer: 5
-  m_Name: Effects Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &930882027
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930882026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1737217432}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &930882028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930882026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3159517e8e2aa1949b2fbf6b993ec35e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _officerVoiceClips:
-  - {fileID: 8300000, guid: 886cdd096573c414b9e3ea85a05bd42d, type: 3}
-  _detectiveVoiceClips: []
-  _killerVoiceClips: []
 --- !u!1 &975421287
 GameObject:
   m_ObjectHideFlags: 8
@@ -3224,9 +3228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3159517e8e2aa1949b2fbf6b993ec35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _officerVoiceClips: []
-  _detectiveVoiceClips: []
-  _killerVoiceClips: []
+  _officerVoiceClips:
+  - {fileID: 8300000, guid: 886cdd096573c414b9e3ea85a05bd42d, type: 3}
+  _detectiveVoiceClips:
+  - {fileID: 8300000, guid: 886cdd096573c414b9e3ea85a05bd42d, type: 3}
+  _killerVoiceClips:
+  - {fileID: 8300000, guid: 886cdd096573c414b9e3ea85a05bd42d, type: 3}
 --- !u!1 &1543728643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,6 +3447,7 @@ RectTransform:
   - {fileID: 215670482}
   - {fileID: 525126212170146528}
   - {fileID: 6795202298263155652}
+  - {fileID: 574852492}
   m_Father: {fileID: 1388966343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3522,6 +3530,7 @@ GameObject:
   - component: {fileID: 1562208196}
   - component: {fileID: 1562208195}
   - component: {fileID: 1562208194}
+  - component: {fileID: 1562208197}
   m_Layer: 5
   m_Name: Pause Button
   m_TagString: Untagged
@@ -3617,6 +3626,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1562208197}
+        m_TargetAssemblyTypeName: PauseGameButton, Assembly-CSharp
+        m_MethodName: TryPauseMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1562208197}
+        m_TargetAssemblyTypeName: PauseGameButton, Assembly-CSharp
+        m_MethodName: TryPauseSpeech
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1562208195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3655,6 +3688,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562208192}
   m_CullTransparentMesh: 1
+--- !u!114 &1562208197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562208192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2511dd5caf0726142aef0dc6152e4546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speechPlayer: {fileID: 1513511542}
+  _musicPlayer: {fileID: 1092086268}
 --- !u!1 &1628558961
 GameObject:
   m_ObjectHideFlags: 0
@@ -4012,7 +4059,6 @@ RectTransform:
   - {fileID: 1378951680}
   - {fileID: 1107994409}
   - {fileID: 1562208193}
-  - {fileID: 930882027}
   m_Father: {fileID: 1555638470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11972,6 +12018,7 @@ GameObject:
   - component: {fileID: 238904500436046163}
   - component: {fileID: 6949583254396264096}
   - component: {fileID: 9124940012231831083}
+  - component: {fileID: 9124940012231831084}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -15012,6 +15059,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9124940012231831084}
+        m_TargetAssemblyTypeName: ContinueDialogButton, Assembly-CSharp
+        m_MethodName: TryContinueMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9124940012231831084}
+        m_TargetAssemblyTypeName: ContinueDialogButton, Assembly-CSharp
+        m_MethodName: TryContinueSpeech
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9124940012231831084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6613818830236365414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719f1be265527c94ab9d4597dab53ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speechPlayer: {fileID: 1513511542}
+  _musicPlayer: {fileID: 1092086268}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

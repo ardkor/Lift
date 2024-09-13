@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LoadButton : MonoBehaviour
+public class LoadGameButton : MonoBehaviour
 {
     [SerializeField] private DialogScenesManager _dialogScenesManager;
 
