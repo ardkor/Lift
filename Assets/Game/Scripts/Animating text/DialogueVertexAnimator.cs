@@ -61,16 +61,23 @@ public class DialogueVertexAnimator {
                 visableCharacterIndex = charCount;
                 FinishAnimating(onFinish);
             }
-            if (ShouldShowNextCharacter(secondsPerCharacter, timeOfLastCharacter)) {
-                if (visableCharacterIndex <= charCount) {
-                    ExecuteCommandsForCurrentIndex(commands, visableCharacterIndex, ref secondsPerCharacter, ref timeOfLastCharacter);
-                    if (visableCharacterIndex < charCount && ShouldShowNextCharacter(secondsPerCharacter, timeOfLastCharacter)) {
-                        charAnimStartTimes[visableCharacterIndex] = Time.unscaledTime;
-                        PlayDialogueSound(voice_sound);
-                        visableCharacterIndex++;
-                        timeOfLastCharacter = Time.unscaledTime;
-                        if (visableCharacterIndex == charCount) {
-                            FinishAnimating(onFinish);
+            if (!pauseAnimating)
+            {
+                if (ShouldShowNextCharacter(secondsPerCharacter, timeOfLastCharacter))
+                {
+                    if (visableCharacterIndex <= charCount)
+                    {
+                        ExecuteCommandsForCurrentIndex(commands, visableCharacterIndex, ref secondsPerCharacter, ref timeOfLastCharacter);
+                        if (visableCharacterIndex < charCount && ShouldShowNextCharacter(secondsPerCharacter, timeOfLastCharacter))
+                        {
+                            charAnimStartTimes[visableCharacterIndex] = Time.unscaledTime;
+                            PlayDialogueSound(voice_sound);
+                            visableCharacterIndex++;
+                            timeOfLastCharacter = Time.unscaledTime;
+                            if (visableCharacterIndex == charCount)
+                            {
+                                FinishAnimating(onFinish);
+                            }
                         }
                     }
                 }
@@ -161,12 +168,25 @@ public class DialogueVertexAnimator {
     }
 
     private static bool ShouldShowNextCharacter(float secondsPerCharacter, float timeOfLastCharacter) {
-        return (Time.unscaledTime - timeOfLastCharacter) > secondsPerCharacter;
+            return (Time.unscaledTime - timeOfLastCharacter) > secondsPerCharacter; // зависит от фпс?
     }
-    public void SkipToEndOfCurrentMessage() {
+    // Используемые мною методы для управления текстом
+
+    // Скип на лкм
+    public void SkipToEndOfCurrentMessage() { // сразу заканчивает анимацию
         if (textAnimating) {
             stopAnimating = true;
         }
+    }
+    // пауза
+    private bool pauseAnimating = false;
+    public void PauseDialogPlaying() 
+    {
+        pauseAnimating = true;
+    }
+    public void ContinueDialogPlaying()
+    {
+        pauseAnimating = false;
     }
 
     private float timeUntilNextDialogueSound = 0;

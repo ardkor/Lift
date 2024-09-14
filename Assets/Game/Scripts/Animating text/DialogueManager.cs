@@ -91,6 +91,15 @@ public class DialogueManager : MonoBehaviour
         List<DialogueCommand> commands = DialogueUtility.ProcessInputString(message, out string totalTextMessage);
         typeRoutine = StartCoroutine(dialogueVertexAnimator_test.AnimateTextIn(commands, totalTextMessage, typingClip, null));
     }*/
+    public void PauseDialogPlaying()
+    {
+        dialogueVertexAnimator.PauseDialogPlaying();
+    }
+    public void ContinueDialogPlaying()
+    {
+        dialogueVertexAnimator.ContinueDialogPlaying();
+    }
+    
     public void PlayMyDialogue(string message)
     {
         this.EnsureCoroutineStopped(ref typeRoutine);

@@ -18,7 +18,7 @@ public class FpsLocker : MonoBehaviour
 
     private const string DefaultFpsStr = "60";
 
-    private void Awake()
+    public void StartFpsLoading()
     {
         QualitySettings.vSyncCount = 0;
         LoadFps();
