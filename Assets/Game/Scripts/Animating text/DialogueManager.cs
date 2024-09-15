@@ -91,6 +91,10 @@ public class DialogueManager : MonoBehaviour
         List<DialogueCommand> commands = DialogueUtility.ProcessInputString(message, out string totalTextMessage);
         typeRoutine = StartCoroutine(dialogueVertexAnimator_test.AnimateTextIn(commands, totalTextMessage, typingClip, null));
     }*/
+    public bool trySkipToEndOfCurrentMessage()
+    {
+        return dialogueVertexAnimator.trySkipToEndOfCurrentMessage();
+    }
     public void PauseDialogPlaying()
     {
         dialogueVertexAnimator.PauseDialogPlaying();

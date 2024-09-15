@@ -43,7 +43,7 @@ public class DialogManager : MonoBehaviour
                 _skippingButtonStage = true; break;
             default:
                 _skippingButtonStage = false; break;
-        }   
+        }
     }
     public void SetSkippingButtonStage()
     {
@@ -62,7 +62,8 @@ public class DialogManager : MonoBehaviour
     {
         //Debug.Log("Clear");
         //_dialogText.text = string.Empty;
-        _dialogueManager.PlayMyDialogue(string.Empty);
+        _dialogueManager.PlayMyDialogue("");//(string.Empty);
+        _dialogueManager.trySkipToEndOfCurrentMessage();
 /*        _dialogText.gameObject.SetActive(false);
         _dialogText.gameObject.SetActive(true);*/
     }
@@ -87,6 +88,11 @@ public class DialogManager : MonoBehaviour
     }
     public void NextPhrase()
     {
+
+        if (_dialogueManager.trySkipToEndOfCurrentMessage()) // #testThis
+        {
+            return;
+        }
         if (_currentPhraseIndex == _dialogScenesManager._currentScene.Dialog.Phrases.Length)
         {
             if (_skippingButtonStage)

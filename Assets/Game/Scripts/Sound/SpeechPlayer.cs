@@ -43,7 +43,7 @@ public class SpeechPlayer : MonoBehaviour
     }
     public void PlaySpeech(string speech)
     {
-        Debug.Log("speech");
+        //Debug.Log("speech");
         FindClip(speech);
         if (_speechClip != null) 
         {

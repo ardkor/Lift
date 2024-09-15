@@ -10,12 +10,34 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private GameObject _gameMenu;
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _pauseMenu;
+
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PauseGameButton _pauseGame;
     [SerializeField] private ContinueDialogButton _continueGame;
 
+    [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private DialogManager _dialogManager;
+
+
+
+    
+
+    
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_pauseMenu.activeSelf)
+            {
+                Debug.Log("ps");
+                return;
+            }
+            else if (_gameMenu.activeSelf)
+            {
+                _dialogManager.NextPhrase();
+                return;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (_menuEnterConfirmation.activeSelf)
@@ -48,6 +70,7 @@ public class PlayerControls : MonoBehaviour
 
             if (_pauseMenu.activeSelf)
             {
+                _dialogueManager.ContinueDialogPlaying();
                 _uiManager.ClosePanel(_pauseMenu);
                 _continueGame.TryContinueMusic();
                 _continueGame.TryContinueSpeech();
@@ -55,6 +78,7 @@ public class PlayerControls : MonoBehaviour
             }
             else if (_gameMenu.activeSelf)
             {
+                _dialogueManager.PauseDialogPlaying();
                 _uiManager.OpenPanel(_pauseMenu);
                 _pauseGame.TryPauseMusic();
                 _pauseGame.TryPauseSpeech();

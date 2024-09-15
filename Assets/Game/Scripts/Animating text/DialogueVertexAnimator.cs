@@ -168,17 +168,17 @@ public class DialogueVertexAnimator {
     }
 
     private static bool ShouldShowNextCharacter(float secondsPerCharacter, float timeOfLastCharacter) {
-            return (Time.unscaledTime - timeOfLastCharacter) > secondsPerCharacter; // зависит от фпс?
+            return (Time.fixedUnscaledTime - timeOfLastCharacter) > secondsPerCharacter; // зависит от фпс?  
     }
-    // Используемые мною методы для управления текстом
 
-    // Скип на лкм
-    public void SkipToEndOfCurrentMessage() { // сразу заканчивает анимацию
+    public bool trySkipToEndOfCurrentMessage() { 
         if (textAnimating) {
             stopAnimating = true;
+            return true;
         }
+        return false;
     }
-    // пауза
+
     private bool pauseAnimating = false;
     public void PauseDialogPlaying() 
     {

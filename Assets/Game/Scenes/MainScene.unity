@@ -1458,12 +1458,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574852491}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1555638470}
+  m_Father: {fileID: 1737217432}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1490,6 +1490,8 @@ MonoBehaviour:
   _uiManager: {fileID: 1545356868}
   _pauseGame: {fileID: 1562208197}
   _continueGame: {fileID: 9124940012231831084}
+  _dialogueManager: {fileID: 1063005798}
+  _dialogManager: {fileID: 106093517}
 --- !u!1 &611632220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3493,7 +3495,6 @@ RectTransform:
   - {fileID: 215670482}
   - {fileID: 525126212170146528}
   - {fileID: 2012317214}
-  - {fileID: 574852492}
   m_Father: {fileID: 1388966343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4109,6 +4110,7 @@ RectTransform:
   - {fileID: 1711909812}
   - {fileID: 1063005800}
   - {fileID: 106093516}
+  - {fileID: 574852492}
   - {fileID: 1044065491}
   - {fileID: 378623491}
   - {fileID: 2116362005}
@@ -12350,6 +12352,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1545356868}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GoTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1063005798}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: ContinueDialogPlaying
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
