@@ -9,6 +9,9 @@ using TMPro;
 public class Settings : MonoBehaviour
 {
     private Resolution[] _resolutions;
+    [SerializeField] private Camera _camera;
+    private const float _cameraStandartSize = 5f;
+    private const float _cameraStandartRatio = 1920/1080f;
     [SerializeField] private Toggle _toggle;
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
     [SerializeField] private TMP_Text _txt;
@@ -88,7 +91,7 @@ public class Settings : MonoBehaviour
 
         
         _resolutionDropdown.RefreshShownValue();
-        LoadSettings();
+        //LoadSettings(); #
          //Screen.width.ToString();
     }
     private void SetNativeResolution()
@@ -141,6 +144,7 @@ public class Settings : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, fullScreen);
         SaveFullscreenPreference();
         SaveResolution(resolution.width, resolution.height);
+        _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
     }
  
     private void SaveResolution(int resolutionWidth, int resolutionHeight)
@@ -160,6 +164,7 @@ public class Settings : MonoBehaviour
                 if (System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference")))
                 {
                     SetNativeResolution();
+                    _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
                     return;
                 }
                 else
@@ -167,11 +172,13 @@ public class Settings : MonoBehaviour
                     fullScreen = false;
                     Screen.SetResolution(PlayerPrefs.GetInt("ResolutionWidth"), PlayerPrefs.GetInt("ResolutionHeight"), fullScreen);
                     _toggle.isOn = false;
+                    _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
                     return;
                 }
 
             }
         }
         SetNativeResolution();
+        _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
     }
 }

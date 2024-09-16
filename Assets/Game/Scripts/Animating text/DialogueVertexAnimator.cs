@@ -71,7 +71,7 @@ public class DialogueVertexAnimator {
                         if (visableCharacterIndex < charCount && ShouldShowNextCharacter(secondsPerCharacter, timeOfLastCharacter))
                         {
                             charAnimStartTimes[visableCharacterIndex] = Time.unscaledTime;
-                            PlayDialogueSound(voice_sound);
+                            //PlayDialogueSound(voice_sound); #
                             visableCharacterIndex++;
                             timeOfLastCharacter = Time.unscaledTime;
                             if (visableCharacterIndex == charCount)

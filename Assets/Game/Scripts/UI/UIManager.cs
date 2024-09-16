@@ -6,10 +6,9 @@ using ChrisTutorials.Persistent;
 
 public class UIManager : MonoBehaviour
 {
-    
+
     //public AudioMixer masterMixer;
     //public AudioClip _audioClip;
-
     private void Start()
     {
         //Time.timeScale = 0f;

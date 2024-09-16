@@ -9,54 +9,77 @@ public class PersonsSpritesManager : MonoBehaviour
     [SerializeField] private Sprite[] _detectiveSprites;
     [SerializeField] private Sprite[] _killerSprites;
 
-    [SerializeField] private RectTransform _officerTransform;
-    [SerializeField] private RectTransform _detectiveTransform;
-    [SerializeField] private RectTransform _killerTransform;
+    [SerializeField] private GameObject _officer;
+    [SerializeField] private GameObject _detective;
+    [SerializeField] private GameObject _killer;
 
-    [SerializeField] private Image _officerImage;
-    [SerializeField] private Image _detectiveImage;
-    [SerializeField] private Image _killerImage;
+    //[SerializeField] 
+    private SpriteRenderer _officerSpriteRenderer;
+    //[SerializeField] 
+    private SpriteRenderer _detectiveSpriteRenderer;
+    //[SerializeField] 
+    private SpriteRenderer _killerSpriteRenderer;
 
+    private void Awake()
+    {
+        _officerSpriteRenderer = _officer.GetComponent<SpriteRenderer>();
+        _detectiveSpriteRenderer = _detective.GetComponent<SpriteRenderer>();
+        _killerSpriteRenderer = _killer.GetComponent<SpriteRenderer>();
+        Debug.Log(_officerSpriteRenderer.enabled);
+    }
     public void HideImages()
     {
-        _officerImage.enabled = false;
-        _detectiveImage.enabled = false;
-        _killerImage.enabled = false;
+        _officerSpriteRenderer.enabled = false;
+        _detectiveSpriteRenderer.enabled = false;
+        _killerSpriteRenderer.enabled = false;
     }
+    public void SetOfficerTransform(float posX, float posY)
+    {
+        _officer.transform.position = new Vector3(posX, posY);
+    }
+    public void SetDetectiveTransform(float posX, float posY)
+    {
+        _detective.transform.position = new Vector2(posX, posY);
+    }
+    public void SetKillerTransform(float posX, float posY)
+    {
+        _killer.transform.position = new Vector2(posX, posY);
+    }
+
     public void SetActivenessOfficer(bool isActive)
     {
-        _officerImage.enabled = isActive;
+        _officerSpriteRenderer.enabled = isActive;
     }
     public void SetActivenessDetective(bool isActive)
     {
-        _detectiveImage.enabled = isActive;
+        _detectiveSpriteRenderer.enabled = isActive;
     }
     public void SetActivenessKiller(bool isActive)
     {
-        _killerImage.enabled = isActive;
+        _killerSpriteRenderer.enabled = isActive;
     }
     /*    public void SetPersonSprite(string spriteName)
         {
             switch (spriteName)
             {
                 case "Officer_1":
-                    _officerImage.sprite = _officerSprites[0]; break;
+                    _officerSpriteRenderer.sprite = _officerSprites[0]; break;
                 case "Officer_2":
-                    _officerImage.sprite = _officerSprites[1]; break;
+                    _officerSpriteRenderer.sprite = _officerSprites[1]; break;
                 case "Officer_3":
-                    _officerImage.sprite = _officerSprites[2]; break;
+                    _officerSpriteRenderer.sprite = _officerSprites[2]; break;
                 case "Detective_1":
-                    _detectiveImage.sprite = _detectiveSprites[0]; break;
+                    _detectiveSpriteRenderer.sprite = _detectiveSprites[0]; break;
                 case "Detective_2":
-                    _detectiveImage.sprite = _detectiveSprites[1]; break;
+                    _detectiveSpriteRenderer.sprite = _detectiveSprites[1]; break;
                 case "Detective_3":
-                    _detectiveImage.sprite = _detectiveSprites[2]; break;
+                    _detectiveSpriteRenderer.sprite = _detectiveSprites[2]; break;
                 case "Killer_1":
-                    _killerImage.sprite = _killerSprites[0]; break;
+                    _killerSpriteRenderer.sprite = _killerSprites[0]; break;
                 case "Killer_2":
-                    _killerImage.sprite = _killerSprites[1]; break;
+                    _killerSpriteRenderer.sprite = _killerSprites[1]; break;
                 case "Killer_3":
-                    _killerImage.sprite = _killerSprites[2]; break;
+                    _killerSpriteRenderer.sprite = _killerSprites[2]; break;
                 default:
                     break;
             }
@@ -66,11 +89,11 @@ public class PersonsSpritesManager : MonoBehaviour
         switch (spriteName)
         {
             case "Officer_1":
-                _officerImage.sprite = _officerSprites[0]; break;
+                _officerSpriteRenderer.sprite = _officerSprites[0]; break;
             case "Officer_2":
-                _officerImage.sprite = _officerSprites[1]; break;
+                _officerSpriteRenderer.sprite = _officerSprites[1]; break;
             case "Officer_3":
-                _officerImage.sprite = _officerSprites[2]; break;
+                _officerSpriteRenderer.sprite = _officerSprites[2]; break;
             default:
                 break;
         }
@@ -80,11 +103,11 @@ public class PersonsSpritesManager : MonoBehaviour
         switch (spriteName)
         {
             case "Detective_1":
-                _detectiveImage.sprite = _detectiveSprites[0]; break;
+                _detectiveSpriteRenderer.sprite = _detectiveSprites[0]; break;
             case "Detective_2":
-                _detectiveImage.sprite = _detectiveSprites[1]; break;
+                _detectiveSpriteRenderer.sprite = _detectiveSprites[1]; break;
             case "Detective_3":
-                _detectiveImage.sprite = _detectiveSprites[2]; break;
+                _detectiveSpriteRenderer.sprite = _detectiveSprites[2]; break;
             default:
                 break;
         }
@@ -94,11 +117,11 @@ public class PersonsSpritesManager : MonoBehaviour
         switch (spriteName)
         {
             case "Killer_1":
-                _killerImage.sprite = _killerSprites[0]; break;
+                _killerSpriteRenderer.sprite = _killerSprites[0]; break;
             case "Killer_2":
-                _killerImage.sprite = _killerSprites[1]; break;
+                _killerSpriteRenderer.sprite = _killerSprites[1]; break;
             case "Killer_3":
-                _killerImage.sprite = _killerSprites[2]; break;
+                _killerSpriteRenderer.sprite = _killerSprites[2]; break;
             default:
                 break;
         }

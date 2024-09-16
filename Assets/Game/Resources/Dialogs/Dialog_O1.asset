@@ -39,12 +39,12 @@ MonoBehaviour:
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 0
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
+    _officerPosX: -5
+    _officerPosY: -0.5793
+    _detectivePosX: 4.83
     _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _killerPosX: 5.81694
+    _killerPosY: -0.7392682
   - _name: "\u041E_2:"
     _text: "\u0422\u0430\u043A \u0443\u0436\u0435 \u043B\u0435\u043D\u044C \u043F\u0435\u0440\u0435\u0442\u044C\u0441\u044F
       \u0437\u0430 \u043D\u0435\u0439, \u0437\u0430\u0432\u0442\u0440\u0430 \u0441\u0445\u043E\u0436\u0443."
@@ -55,12 +55,12 @@ MonoBehaviour:
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 0
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
+    _officerPosX: -5
+    _officerPosY: -0.5793
+    _detectivePosX: 4.83
     _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _killerPosX: 5.81694
+    _killerPosY: -0.7392682
   - _name: "\u041E_3:"
     _text: "\u041F\u043E\u0440\u0430 \u0432 \u043E\u0444\u0438\u0441, \u0437\u043D\u0430\u0447\u0438\u0442\u0441\u044F."
     personSpeech: Officer_mumbling_low
@@ -70,12 +70,12 @@ MonoBehaviour:
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 0
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
+    _officerPosX: -573
+    _officerPosY: -16.5
+    _detectivePosX: 4.83
     _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _killerPosX: 5.81694
+    _killerPosY: -0.7392682
   - _name: "\u041E_4:"
     _text: "\u041D\u0443 \u0435\u0451 \u044D\u0442\u0443 \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0443,
       \u044F \u043F\u043E\u0445\u043E\u0436 \u043D\u0430 \u0430\u0442\u043B\u0435\u0442\u0430?
@@ -88,9 +88,9 @@ MonoBehaviour:
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 0
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
+    _officerPosX: -573
+    _officerPosY: -16.5
+    _detectivePosX: 4.83
     _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _killerPosX: 5.81694
+    _killerPosY: -0.7392682

@@ -3,12 +3,12 @@ using ChrisTutorials.Persistent;
 
 public class MusicPlayer : MonoBehaviour
 {
-    private AudioSource _musicSource;
+     private AudioSource _musicSource;
 
     [SerializeField] private AudioClip _musicClip;
     void Start()
     {
-        _musicSource = AudioManager.Instance.PlayLoop(_musicClip, transform, 1f, 1f, true);
+         _musicSource = AudioManager.Instance.PlayLoop(_musicClip, transform, 1f, 1f, true);
     }
     public void TryPauseMusic()
     {
@@ -21,7 +21,7 @@ public class MusicPlayer : MonoBehaviour
     {
         if (_musicSource != null)
         {
-            _musicSource.PlayDelayed(300f);//delayed םו הוכוטע?
+            _musicSource.Play();
         }
     }
 }

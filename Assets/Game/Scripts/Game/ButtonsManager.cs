@@ -5,9 +5,10 @@ public class ButtonsManager : MonoBehaviour
 {
     [SerializeField] private DialogScenesManager _dialogScenesManager;
     [SerializeField] private DialogManager _dialogManager;
-    [SerializeField] private Button[] _floorButtons;
-    [SerializeField] private Button _dialogButton;
-
+    [SerializeField] private GameObject _dialogButton;
+/*    [SerializeField] private Button[] _floorButtons;
+    [SerializeField] private Button _dialogButton;*/
+    [SerializeField] private FloorButton[] _floorButtons;
     private void OnEnable()
     {
         _dialogManager.DialogEnded += EnableFloorButtonChoice;
@@ -34,7 +35,8 @@ public class ButtonsManager : MonoBehaviour
     {
         foreach (DialogScene.NextScene nextScene in _dialogScenesManager._currentScene.NextScenes)
         {
-            _floorButtons[(int)nextScene.ButtonNum].interactable = true;
+            //_floorButtons[(int)nextScene.ButtonNum].interactable = true;
+            _floorButtons[(int)nextScene.ButtonNum].SetActiveness(true);
         }
     }
 
@@ -49,10 +51,14 @@ public class ButtonsManager : MonoBehaviour
 
     public void TurnOffFloorButtons()
     {
-        foreach (Button button in _floorButtons)
+        foreach (FloorButton button in _floorButtons)
+        {
+            button.SetActiveness(false); 
+        }
+        /*foreach (Button button in _floorButtons)
         {
             button.interactable = false;
-        }
+        }*/
     }
 
 }

@@ -29,7 +29,6 @@ public class PlayerControls : MonoBehaviour
         {
             if (_pauseMenu.activeSelf)
             {
-                Debug.Log("ps");
                 return;
             }
             else if (_gameMenu.activeSelf)
