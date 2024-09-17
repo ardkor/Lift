@@ -7,6 +7,7 @@ public class FloorButton : MonoBehaviour
     private DialogScenesManager dialogScenesManager;
     [SerializeField] private Sprite pressedSprite;
     [SerializeField] private Sprite unpressedSprite;
+    [SerializeField] private Sprite unactiveSprite;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private int buttonNum;
     private bool _activeness;
@@ -19,6 +20,14 @@ public class FloorButton : MonoBehaviour
     public void SetActiveness(bool activeness) 
     {
         _activeness = activeness;
+        if (_activeness)
+        {
+            spriteRenderer.sprite = unpressedSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = unactiveSprite;
+        }
     }
     private void OnMouseDown()
     {
