@@ -37,7 +37,6 @@ public class FloorButton : MonoBehaviour
         }
     }
 
-
     private void OnMouseUp()
     {
         if (_activeness)

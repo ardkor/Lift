@@ -10,6 +10,8 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private GameObject _gameMenu;
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _settingsMenu;
+    [SerializeField] private Collider2D _pauseCollider;
 
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PauseGameButton _pauseGame;
@@ -55,6 +57,11 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (_settingsMenu.activeSelf)
+            {
+                _uiManager.ClosePanel(_settingsMenu);
+                return;
+            }
             if (_menuEnterConfirmation.activeSelf)
             {
                 _uiManager.ClosePanel(_menuEnterConfirmation);
@@ -73,6 +80,7 @@ public class PlayerControls : MonoBehaviour
                 _uiManager.ClosePanel(_pauseMenu);
                 _continueGame.TryContinueMusic();
                 _continueGame.TryContinueSpeech();
+                _pauseCollider.enabled = false;
                 return;
             }
             else if (_gameMenu.activeSelf)
@@ -81,6 +89,7 @@ public class PlayerControls : MonoBehaviour
                 _uiManager.OpenPanel(_pauseMenu);
                 _pauseGame.TryPauseMusic();
                 _pauseGame.TryPauseSpeech();
+                _pauseCollider.enabled = true;
                 return;
             }
         }

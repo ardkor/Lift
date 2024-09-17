@@ -40,15 +40,6 @@ public class ButtonsManager : MonoBehaviour
         }
     }
 
-    private void EnableDialogButton()
-    {
-        _dialogButton.gameObject.SetActive(true);
-    }
-    private void DisableDialogButton()
-    {
-        _dialogButton.gameObject.SetActive(false);
-    }
-
     public void TurnOffFloorButtons()
     {
         foreach (FloorButton button in _floorButtons)
@@ -60,5 +51,14 @@ public class ButtonsManager : MonoBehaviour
             button.interactable = false;
         }*/
     }
+    private void EnableDialogButton()
+    {
+        _dialogButton.gameObject.SetActive(true);
+    }
+    private void DisableDialogButton()
+    {
+        _dialogButton.gameObject.SetActive(false);
+    }
+
 
 }
