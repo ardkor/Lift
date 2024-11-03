@@ -1,15 +1,33 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class NewGameButton : MonoBehaviour
+public class NewGameButton : UIButton
 {
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _gameScreen;
+    [SerializeField] private GameObject _confirmationPanel;
     [SerializeField] private DialogScenesManager _dialogScenesManager;
-    public void TryStartNewGame(GameObject confirmationPanel)
+
+    private void Start()
+    {
+        StartButton();
+        _mainMenu = _buttonData.Data.MainMenu;
+        _gameScreen = _buttonData.Data.GameScreen;
+        _confirmationPanel = _buttonData.Data.ConfirmationPanel;
+        _dialogScenesManager = _buttonData.Data.DialogScenesManager;
+    }
+
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        base.OnPointerUp(eventData);
+        TryStartNewGame();
+    }
+    public void TryStartNewGame()
     {
         if (PlayerPrefs.HasKey("CurrentSceneIndex"))
         {
-            confirmationPanel.SetActive(true);
+            _confirmationPanel.SetActive(true);
         }
         else
         {
@@ -23,4 +41,5 @@ public class NewGameButton : MonoBehaviour
         _dialogScenesManager.LoadFirstScene();
         _mainMenu.SetActive(false);
     }
+
 }

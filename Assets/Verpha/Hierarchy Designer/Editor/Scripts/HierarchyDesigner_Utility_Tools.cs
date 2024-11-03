@@ -376,7 +376,7 @@ namespace Verpha.HierarchyDesigner
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Activate_Type_UI_Legacy + "/Activate All Buttons", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Activate)]
-        public static void MenuItem_Activate_Buttons() => Activate_AllComponentOfType<Button>(true);
+        public static void MenuItem_Activate_Buttons() => Activate_AllComponentOfType<UIButton>(true);
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Activate_Type_UI_Legacy + "/Activate All Dropdowns", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Activate)]
@@ -712,7 +712,7 @@ namespace Verpha.HierarchyDesigner
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Deactivate_Type_UI_Legacy + "/Deactivate All Buttons", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Activate)]
-        public static void MenuItem_Deactivate_Buttons() => Activate_AllComponentOfType<Button>(false);
+        public static void MenuItem_Deactivate_Buttons() => Activate_AllComponentOfType<UIButton>(false);
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Deactivate_Type_UI_Legacy + "/Deactivate All Dropdowns", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Activate)]
@@ -1088,7 +1088,7 @@ namespace Verpha.HierarchyDesigner
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Count_Type_UI_Legacy + "/Count All Buttons", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Count)]
-        public static void MenuItem_Count_Buttons() => Count_AllComponentOfType<Button>("Buttons");
+        public static void MenuItem_Count_Buttons() => Count_AllComponentOfType<UIButton>("Buttons");
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Count_Type_UI_Legacy + "/Count All Dropdowns", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Count)]
@@ -1484,7 +1484,7 @@ namespace Verpha.HierarchyDesigner
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Lock_Type_UI_Legacy + "/Lock All Buttons", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Lock)]
-        public static void MenuItem_Lock_Buttons() => Lock_AllComponentOfType<Button>(true);
+        public static void MenuItem_Lock_Buttons() => Lock_AllComponentOfType<UIButton>(true);
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Lock_Type_UI_Legacy + "/Lock All Dropdowns", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Lock)]
@@ -1820,7 +1820,7 @@ namespace Verpha.HierarchyDesigner
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Unlock_Type_UI_Legacy + "/Unlock All Buttons", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Lock)]
-        public static void MenuItem_Unlock_Buttons() => Lock_AllComponentOfType<Button>(false);
+        public static void MenuItem_Unlock_Buttons() => Lock_AllComponentOfType<UIButton>(false);
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Unlock_Type_UI_Legacy + "/Unlock All Dropdowns", false, HierarchyDesigner_Shared_MenuItems.LayerEleven + 9)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Lock)]
@@ -2208,7 +2208,7 @@ namespace Verpha.HierarchyDesigner
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Select_Type_UI_Legacy + "/Select All Buttons", false, HierarchyDesigner_Shared_MenuItems.LayerFourteen + 10)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Select)]
-        public static void MenuItem_Select_Buttons() => Select_AllComponentOfType<Button>();
+        public static void MenuItem_Select_Buttons() => Select_AllComponentOfType<UIButton>();
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Section_Select_Type_UI_Legacy + "/Select All Dropdowns", false, HierarchyDesigner_Shared_MenuItems.LayerFourteen + 10)]
         [HierarchyDesigner_Shared_Attributes(HierarchyDesigner_Attribute_Tools.Select)]
@@ -2598,7 +2598,7 @@ namespace Verpha.HierarchyDesigner
         public static void ContextMenu_Select_Texts() => Select_AllComponentOfType<Text>();
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Select_Type_UI_Legacy + "/Select All Buttons", false, HierarchyDesigner_Shared_MenuItems.LayerTwelve + 10)]
-        public static void ContextMenu_Select_Buttons() => Select_AllComponentOfType<Button>();
+        public static void ContextMenu_Select_Buttons() => Select_AllComponentOfType<UIButton>();
 
         [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Select_Type_UI_Legacy + "/Select All Dropdowns", false, HierarchyDesigner_Shared_MenuItems.LayerTwelve + 10)]
         public static void ContextMenu_Select_Dropdowns() => Select_AllComponentOfType<Dropdown>();
