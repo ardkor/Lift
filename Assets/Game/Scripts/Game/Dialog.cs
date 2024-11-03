@@ -44,6 +44,8 @@ public class Dialog : ScriptableObject
         [SerializeField] private float _killerPosX;
         [SerializeField] private float _killerPosY;
 
+        [SerializeField] private bool _liftOpenness;
+
         public bool OfficerActive => _officerActive;
         public bool DetectiveActive => _detectiveActive;
         public bool KillerActive => _killerActive;
@@ -55,6 +57,7 @@ public class Dialog : ScriptableObject
         public float OfficerPosY => _officerPosY;
         public float DetectivePosY => _detectivePosY;
         public float KillerPosY => _killerPosY;
+        public bool LiftOpenness => _liftOpenness;
 
         // posxy и состояние вкл/выкл для каждой персоны, спрайт тоже для каждой свой - по 3 переменных
         public string Name => _name;

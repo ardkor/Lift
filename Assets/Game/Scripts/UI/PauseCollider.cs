@@ -14,12 +14,4 @@ public class PauseCollider : MonoBehaviour
     {
         _pauseCollider.enabled = false;
     }
-/*    private void OnMouseDown()
-    {
-    }
-
-
-    private void OnMouseUp()
-    {
-    }*/
 }

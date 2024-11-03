@@ -11,6 +11,7 @@ public class DialogScenesManager : MonoBehaviour
     [SerializeField] private ButtonsManager _buttonsManager;
 
 
+
     private DialogScene _loadingScene;
     [HideInInspector] public DialogScene _currentScene { get; private set; }
 

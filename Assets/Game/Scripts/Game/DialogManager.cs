@@ -12,11 +12,13 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private PersonsSpritesManager _personsSpritesManager;
+    [SerializeField] private LiftManager _liftManager;
 
     private string _futureText;
     private int _currentPhraseIndex;
     private bool _skippingButtonStage;
     private int _skippingButtonNum;
+    private bool _prevLiftStatus;
 
     public delegate void DialogEndedHandler();
     public event DialogEndedHandler DialogEnded;
@@ -71,7 +73,8 @@ public class DialogManager : MonoBehaviour
     {
         _currentPhraseIndex = 0;
         UpdateImages();
-
+        _prevLiftStatus = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness;
+        _liftManager.SetLiftSpriteStatus(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness);
         //_futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text; 
     }
     private void UpdateImages() 
@@ -92,7 +95,6 @@ public class DialogManager : MonoBehaviour
     }
     public void NextPhrase()
     {
-
         if (_dialogueManager.trySkipToEndOfCurrentMessage()) // #testThis
         {
             return;
@@ -117,6 +119,11 @@ public class DialogManager : MonoBehaviour
             }
             DialogEnded();
             return;
+        }
+        if (_prevLiftStatus != _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness)
+        {
+            _liftManager.SwitchLiftStatus(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness);
+            _prevLiftStatus = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness;
         }
         UpdateImages();
         _effectsPlayer.PlaySpeech(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSpeech);
