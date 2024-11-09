@@ -46,7 +46,18 @@ public class Dialog : ScriptableObject
 
         [SerializeField] private bool _liftOpenness;
 
-        public bool OfficerActive => _officerActive;
+        [SerializeField] private List<Sound> _sounds;
+
+        [System.Serializable]
+        public class Sound
+        {
+            [SerializeField] private AudioClip _audioClip;
+            [SerializeField] private int _delay;
+
+            public AudioClip AudioClip => _audioClip;
+            public int Delay => _delay;
+        }
+            public bool OfficerActive => _officerActive;
         public bool DetectiveActive => _detectiveActive;
         public bool KillerActive => _killerActive;
 
@@ -58,6 +69,8 @@ public class Dialog : ScriptableObject
         public float DetectivePosY => _detectivePosY;
         public float KillerPosY => _killerPosY;
         public bool LiftOpenness => _liftOpenness;
+
+        public List<Sound> Sounds => _sounds;
 
         // posxy и состояние вкл/выкл для каждой персоны, спрайт тоже для каждой свой - по 3 переменных
         public string Name => _name;
