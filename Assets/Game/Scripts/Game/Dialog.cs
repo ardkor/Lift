@@ -23,8 +23,8 @@ public class Dialog : ScriptableObject
         private List<string> Speech { get { return new List<string>() { "Officer_mumbling_low", "Officer_mumbling_high", "Killer_mumbling_high", "Detective_mumbling_high", "sound_detective_wow" }; } }
         [Dropdown("Speech")] [SerializeField] private string personSpeech;
 
-        private List<string> officerSprites { get { return new List<string>() { "Officer_1", "Officer_2" }; } }
-        private List<string> detectiveSprites { get { return new List<string>() { "Detective_1", "Detective_2" }; } }
+        private List<string> officerSprites { get { return new List<string>() { "Officer_1"}; } }
+        private List<string> detectiveSprites { get { return new List<string>() { "Detective_1"}; } }
         private List<string> killerSprites { get { return new List<string>() { "Killer_1", "Killer_2" }; } }
 
         [Dropdown("officerSprites")] [SerializeField] private string officerSprite;
