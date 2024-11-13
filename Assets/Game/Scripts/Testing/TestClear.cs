@@ -6,7 +6,7 @@ public class TestClear : MonoBehaviour
 {
     [SerializeField] TMP_Text _text;
     [SerializeField] DialogueManager _dialogueManager;
-    private string text = "fffffffffffffffffffffffffffffffffffffffffffffffffff";
+    //private string text = "fffffffffffffffffffffffffffffffffffffffffffffffffff";
 
     private void Start()
     {

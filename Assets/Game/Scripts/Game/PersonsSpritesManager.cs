@@ -32,7 +32,7 @@ public class PersonsSpritesManager : MonoBehaviour
         _officerSpriteRenderer = _officer.GetComponent<SpriteRenderer>();
         _detectiveSpriteRenderer = _detective.GetComponent<SpriteRenderer>();
         _killerSpriteRenderer = _killer.GetComponent<SpriteRenderer>();
-        Debug.Log(_officerSpriteRenderer.enabled);
+       // Debug.Log(_officerSpriteRenderer.enabled);
     }
     public void HideImages()
     {

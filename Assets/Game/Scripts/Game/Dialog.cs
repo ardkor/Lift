@@ -17,8 +17,8 @@ public class Dialog : ScriptableObject
     {
         [SerializeField] private string _name;
         [SerializeField] [TextArea(3, 5)] private string _text;
-        private List<string> Speech { get { return new List<string>() { "Officer_mumbling_low", "Officer_mumbling_high", "Killer_mumbling_high", "Detective_mumbling_high", "sound_detective_wow" }; } }
-        [Dropdown("Speech")] [SerializeField] private string personSpeech;
+        private List<string> _speech { get { return new List<string>() { "None", "Huh", "Killer_mumbling", "Killer_wow" }; } }
+        [Dropdown("_speech")] [SerializeField] private string _personSpeech;
 
         [SerializeField] private bool _officerActive;
         [SerializeField] private bool _detectiveActive;
@@ -44,8 +44,10 @@ public class Dialog : ScriptableObject
         [Dropdown("_killerPositions")] [EnableIf("KillerActive")] [SerializeField] private string _killerPosition;
 
         [SerializeField] private bool _liftOpenness;
+        private List<string> _environmentSounds { get { return new List<string>() { "None", "Knocking", "Knocking_aggro", "Steps" }; } }
+        [Dropdown("_environmentSounds")] [SerializeField] private string _environmentSound;
 
-        [SerializeField] private List<Sound> _sounds;
+        //private List<Sound> _sounds;
 
         public string Name => _name;
         public string Text => _text;
@@ -67,19 +69,20 @@ public class Dialog : ScriptableObject
         public string KillerPosition => _killerPosition;
 
         public bool LiftOpenness => _liftOpenness;
-        public string PersonSpeech => personSpeech;
-        
+        public string PersonSpeech => _personSpeech;
+        public string EnvironmentSound => _environmentSound;
 
-        [System.Serializable]
+
+       /* [System.Serializable]
         public class Sound
         {
-            [SerializeField] private AudioClip _audioClip;
+            [SerializeField] private string _name;
             [SerializeField] private int _delay;
 
-            public AudioClip AudioClip => _audioClip;
+            public string Name => _name;
             public int Delay => _delay;
         }
-        public List<Sound> Sounds => _sounds;
+        public List<Sound> Sounds => _sounds;*/
     }
 
     [SerializeField] private Phrase[] _phrases;

@@ -9,7 +9,7 @@ public class NewGameButton : UIButton
     [SerializeField] private GameObject _confirmationPanel;
     [SerializeField] private DialogScenesManager _dialogScenesManager;
 
-    private void Start()
+    override protected void Start()
     {
         StartButton();
         _mainMenu = _buttonData.Data.MainMenu;

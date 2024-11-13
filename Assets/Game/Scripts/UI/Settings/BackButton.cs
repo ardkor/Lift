@@ -8,7 +8,7 @@ public class BackButton : UIButton
     [SerializeField] private UIManager _uIManager;
     [SerializeField] private GameObject _settingsMenu;
 
-    private void Start()
+    override protected void Start()
     {
         StartButton();
         _uIManager = _buttonData.Data.UIManager;

@@ -6,6 +6,7 @@ public class PauseGameButton : MonoBehaviour
 {
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private SpeechPlayer _speechPlayer;
+    [SerializeField] private EnvironmentPlayer _environmentPlayer;
     [SerializeField] private MusicPlayer _musicPlayer;
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private Collider2D _pauseCollider;
@@ -40,6 +41,7 @@ public class PauseGameButton : MonoBehaviour
             _dialogueManager.PauseDialogPlaying();
             TryPauseMusic();
             TryPauseSpeech();
+            TryPauseEnvironmentSound();
             _pauseCollider.enabled = true;
         }
     }
@@ -50,6 +52,11 @@ public class PauseGameButton : MonoBehaviour
 
     public void TryPauseSpeech()
     {
-        _speechPlayer.TryPauseSpeech();
+        _speechPlayer.TryPause();
+    }
+
+    public void TryPauseEnvironmentSound()
+    {
+        _environmentPlayer.TryPause();
     }
 }

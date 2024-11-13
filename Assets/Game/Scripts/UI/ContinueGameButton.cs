@@ -9,7 +9,7 @@ public class ContinueGameButton : UIButton
     [SerializeField] private DialogScenesManager _dialogScenesManager;
 
 
-    private void OnEnable()
+    override protected void OnEnable()
     {
         if (!PlayerPrefs.HasKey("CurrentSceneIndex"))
         {
@@ -18,7 +18,7 @@ public class ContinueGameButton : UIButton
         }
     }
 
-    private void Start()
+    override protected void Start()
     {
         StartButton();
         _mainMenu = _buttonData.Data.MainMenu;

@@ -13,7 +13,7 @@ public class UISlider : Slider
     protected RectTransform _rt;
     protected ButtonData _buttonData;
     protected float _angle;
-    override protected void  Start()
+    override protected void  Awake()
     {
         //base.Start();
         _rt = gameObject.GetComponent<RectTransform>();

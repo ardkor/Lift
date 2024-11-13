@@ -6,7 +6,7 @@ public class ExitButton : UIButton
 {
     [SerializeField] private UIManager _uIManager;
 
-    private void Start()
+    override protected void Start()
     {
         StartButton();
         _uIManager = _buttonData.Data.UIManager;

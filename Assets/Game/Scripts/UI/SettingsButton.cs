@@ -7,7 +7,7 @@ public class SettingsButton : UIButton
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private UIManager _uIManager;
 
-    private void Start()
+    override protected void Start()
     {
         StartButton();
         _settingsMenu = _buttonData.Data.SettingsMenu;

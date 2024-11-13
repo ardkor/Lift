@@ -8,7 +8,8 @@ public class DialogManager : MonoBehaviour
 {
     [SerializeField] private DialogScenesManager _dialogScenesManager;
     [SerializeField] private TMP_Text _dialogText;
-    [SerializeField] private SpeechPlayer _effectsPlayer;
+    [SerializeField] private SpeechPlayer _speechPlayer;
+    [SerializeField] private EnvironmentPlayer _environmentPlayer;
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private PersonsSpritesManager _personsSpritesManager;
@@ -126,8 +127,9 @@ public class DialogManager : MonoBehaviour
             _prevLiftStatus = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness;
         }
         UpdateImages();
-        _effectsPlayer.PlaySpeech(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSpeech);
-        
+        _speechPlayer.Play(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSpeech);
+        _environmentPlayer.Play(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].EnvironmentSound);
+
         _futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
         _currentPhraseIndex++;
         _dialogueManager.PlayMyDialogue(_futureText);
