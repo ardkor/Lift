@@ -12,7 +12,7 @@ public class UIDropdown : TMP_Dropdown
 
     protected Image _image;
     protected ButtonData _buttonData;
-    private void Start()
+    override protected void Start()
     {
         base.Start();
         _image = gameObject.GetComponent<Image>();

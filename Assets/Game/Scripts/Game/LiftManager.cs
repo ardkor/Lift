@@ -16,10 +16,12 @@ public class LiftManager : MonoBehaviour
         if (liftStatus)
         {
             _anim.SetTrigger("open_lift");
+            //играть звук лифта
         }
         else
         {
             _anim.SetTrigger("close_lift");
+            //играть звук лифта
         }
     }
 

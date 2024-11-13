@@ -14,7 +14,7 @@ public class Settings : MonoBehaviour
     private const float _cameraStandartRatio = 1920/1080f;
     [SerializeField] private Toggle _toggle;
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
-    [SerializeField] private TMP_Text _txt;
+   // [SerializeField] private TMP_Text _txt;
     private const int minimalWidth = 960;
     private bool fullScreen;
     List<Resolution> resolutions = new List<Resolution>();
@@ -105,7 +105,7 @@ public class Settings : MonoBehaviour
                 _resolutionDropdown.value = i;
         }
         _resolutionDropdown.RefreshShownValue();
-        _txt.text = Screen.width.ToString();
+       // _txt.text = Screen.width.ToString();
         Screen.SetResolution(Screen.width, Screen.height, fullScreen);
     }
     public void SetFullscreen(bool isFullscreen)

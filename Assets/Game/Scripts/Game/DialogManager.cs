@@ -81,9 +81,9 @@ public class DialogManager : MonoBehaviour
     {
         _personsSpritesManager.HideImages();
         //установить позиции 
-        _personsSpritesManager.SetOfficerTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerPosX, _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerPosY);
-        _personsSpritesManager.SetDetectiveTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectivePosX, _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectivePosY);
-        _personsSpritesManager.SetKillerTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerPosX, _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerPosY);
+        _personsSpritesManager.SetOfficerTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerPosition);
+        _personsSpritesManager.SetDetectiveTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectivePosition);
+        _personsSpritesManager.SetKillerTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerPosition);
 
         _personsSpritesManager.SetActivenessOfficer(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerActive);
         _personsSpritesManager.SetActivenessDetective(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectiveActive);

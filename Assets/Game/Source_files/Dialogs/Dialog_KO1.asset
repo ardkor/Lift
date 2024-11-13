@@ -16,144 +16,162 @@ MonoBehaviour:
   - _name: "\u041E_1:"
     _text: "\u0427\u0442\u043E \u0437\u0430...?\r\n"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: Officer_1
+    _detectiveSprite: Detective_1
+    _killerSprite: Killer_1
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: Officer_position_1
+    _detectivePosition: Detective_position_1
+    _killerPosition: Killer_position_1
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u0423_1:"
     _text: "\u0410\u2026 \u042D\u043C\u2026 \u0423\u043B\u0438\u0437\u043D\u0443\u043B!
       \u042F \u0432\u0441\u0451 \u0432\u0438\u0434\u0435\u043B! \r"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: Officer_1
+    _detectiveSprite: Detective_1
+    _killerSprite: Killer_1
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: Officer_position_1
+    _detectivePosition: Detective_position_1
+    _killerPosition: Killer_position_1
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u041E_2:"
     _text: "\u0427\u0442\u043E \u0442\u0443\u0442 \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u043E?\r"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: Officer_1
+    _detectiveSprite: Detective_1
+    _killerSprite: Killer_1
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: Officer_position_1
+    _detectivePosition: Detective_position_1
+    _killerPosition: Killer_position_1
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u0423_2:"
     _text: "\u041C\u043D\u0435 \u0441\u0440\u043E\u0447\u043D\u043E \u043D\u0430\u0434\u043E
       \u043A \u043E\u0444\u0438\u0446\u0435\u0440\u0443, \u044F \u0436\u0435 \u0441\u0432\u0438\u0434\u0435\u0442\u0435\u043B\u044C!\r"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: Officer_1
+    _detectiveSprite: Detective_1
+    _killerSprite: Killer_1
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: Officer_position_1
+    _detectivePosition: Detective_position_1
+    _killerPosition: Killer_position_1
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u041E_3:"
     _text: "\u042F \u0438 \u0435\u0441\u0442\u044C \u043E\u0444\u0438\u0446\u0435\u0440,
       \u0430 \u0442\u044B \u0441\u0435\u0439\u0447\u0430\u0441 \u0436\u0435 \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u044F\u0435\u0448\u044C\u0441\u044F
       \u0441\u043E \u043C\u043D\u043E\u0439.\r"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: 
+    _detectiveSprite: 
+    _killerSprite: 
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: 
+    _detectivePosition: 
+    _killerPosition: 
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u0421_1:"
     _text: "(\u041B\u0438\u0444\u0442 \u0437\u0430\u043A\u0440\u044B\u043B\u0441\u044F)\r"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: 
+    _detectiveSprite: 
+    _killerSprite: 
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: 
+    _detectivePosition: 
+    _killerPosition: 
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u0423_3:"
     _text: "\u042F \u0432\u0438\u0434\u0435\u043B \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E.\r"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: 
+    _detectiveSprite: 
+    _killerSprite: 
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: 
+    _detectivePosition: 
+    _killerPosition: 
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u041E_4:"
     _text: "\u0423\u0431\u0438\u0439\u0441\u0442\u0432\u043E?! \u041C\u0430\u0442\u044C
       \u0447\u0435\u0441\u0442\u043D\u0430\u044F, \u044D\u0442\u043E \u0436 \u0441\u044E\u0434\u0430
       \u0435\u0449\u0451 \u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0443 \u0432\u044B\u0441\u043B\u0430\u0442\u044C
       \u043C\u043E\u0433\u0443\u0442.\r"
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: 
+    _detectiveSprite: 
+    _killerSprite: 
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: 
+    _detectivePosition: 
+    _killerPosition: 
+    _liftOpenness: 0
+    _sounds: []
   - _name: "\u041E_5:"
     _text: "\u041F\u043E\u043D\u044F\u0442\u043D\u043E, \u0441\u0432\u0438\u0434\u0435\u0442\u0435\u043B\u044C.
       \u041C\u044B \u0441\u0435\u0439\u0447\u0430\u0441 \u0436\u0435 \u0435\u0434\u0435\u043C
       \u043A\u043E \u043C\u043D\u0435 \u0432 \u043E\u0444\u0438\u0441."
     personSpeech: Officer_mumbling_low
-    officerSprite: Officer_1
-    detectiveSprite: Detective_1
-    killerSprite: Killer_1
     _officerActive: 1
     _detectiveActive: 0
     _killerActive: 1
-    _officerPosX: 0
-    _officerPosY: 0
-    _detectivePosX: 0
-    _detectivePosY: 0
-    _killerPosX: 0
-    _killerPosY: 0
+    _officerSprite: 
+    _detectiveSprite: 
+    _killerSprite: 
+    _officerFlip: 0
+    _detectiveFlip: 0
+    _killerFlip: 0
+    _officerPosition: 
+    _detectivePosition: 
+    _killerPosition: 
+    _liftOpenness: 0
+    _sounds: []
