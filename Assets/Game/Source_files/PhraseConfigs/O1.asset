@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af1e33af3758454d80f1ff85613eed9, type: 3}
   m_Name: O1
   m_EditorClassIdentifier: 
+  _name: O1
   _officerActive: 1
   _detectiveActive: 0
   _killerActive: 0

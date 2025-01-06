@@ -11,9 +11,9 @@ public class PauseGameButton : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private Collider2D _pauseCollider;
 
-    private UIManager _uiManager;
     [SerializeField] private Sprite pressedSprite;
     [SerializeField] private Sprite unpressedSprite;
+    private UIManager _uiManager;
     private SpriteRenderer spriteRenderer;
     private bool _activeness = true;
 

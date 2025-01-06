@@ -13,7 +13,7 @@ public class Dialog : ScriptableObject
 
         [SerializeField] [TextArea(3, 5)] private string _text;
 
-        private List<string> _blackoutConfigNames { get { return new List<string>() { "O1", "K1", "D1", "KO1", "DK1", "DKO1" }; } }
+        private List<string> _blackoutConfigNames { get { return new List<string>() { "OnlyOfficer", "OnlyKiller", "OnlyDetective" }; } }
         [Dropdown("_blackoutConfigNames")] [SerializeField] private string _blackoutConfigName;
         private List<string> _phraseConfigNames { get { return new List<string>() { "O1", "K1", "D1", "KO1", "DK1", "DKO1" }; } }
         [Dropdown("_phraseConfigNames")] [SerializeField] private string _phraseConfigName;

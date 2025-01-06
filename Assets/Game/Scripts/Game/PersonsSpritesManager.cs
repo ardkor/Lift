@@ -15,7 +15,7 @@ public class PersonsSpritesManager : MonoBehaviour
 
     [SerializeField] private List<PersonPosition> _personPositions;
 
-    private int darkenedColorValue = 180;
+    private int darkenedColorValue = 150;
     private int usualColorValue = 255;
 
     [System.Serializable]

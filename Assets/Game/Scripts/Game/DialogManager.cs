@@ -7,7 +7,7 @@ using TMPro;
 public class DialogManager : MonoBehaviour
 {
     [SerializeField] private DialogScenesManager _dialogScenesManager;
-    [SerializeField] private TMP_Text _dialogText;
+    //[SerializeField] private TMP_Text _dialogText;
     [SerializeField] private SpeechPlayer _speechPlayer;
     [SerializeField] private EnvironmentPlayer _environmentPlayer;
     [SerializeField] private DialogueManager _dialogueManager;
