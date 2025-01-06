@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af1e33af3758454d80f1ff85613eed9, type: 3}
+  m_Name: KO1
+  m_EditorClassIdentifier: 
+  _officerActive: 1
+  _detectiveActive: 0
+  _killerActive: 1
+  _officerSprite: Officer_1
+  _detectiveSprite: Detective_1
+  _killerSprite: Killer_1
+  _officerFlip: 0
+  _detectiveFlip: 1
+  _killerFlip: 0
+  _officerPosition: Officer_position_1
+  _detectivePosition: Detective_position_1
+  _killerPosition: Killer_position_1

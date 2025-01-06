@@ -1,0 +1,41 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class MainMenuContinueGameButton : UIButton
+{
+    private GameObject _mainMenu;
+    private GameObject _gameScreen;
+    private DialogScenesManager _dialogScenesManager;
+
+
+    override protected void OnEnable()
+    {
+        if (!PlayerPrefs.HasKey("CurrentSceneIndex"))
+        {
+            gameObject.SetActive(false);
+            //base.
+        }
+    }
+
+    override protected void Start()
+    {
+        StartButton();
+        _mainMenu = _buttonData.Data.MainMenu;
+        _gameScreen = _buttonData.Data.GameScreen;
+        _dialogScenesManager = _buttonData.Data.DialogScenesManager;
+    }
+
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        base.OnPointerUp(eventData);
+        ContinueGame();
+    }
+    public void ContinueGame()
+    {
+        _gameScreen.SetActive(true);
+        _dialogScenesManager.LoadCurrentScene();
+        _mainMenu.SetActive(false);
+    }
+
+}

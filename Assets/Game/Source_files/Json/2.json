@@ -1,0 +1,20 @@
+{
+  "m_Name": "Dialog_D1",
+  "m_EditorClassIdentifier": null,
+  "_phrases": [
+    {
+      "_name": "Д_1:",
+      "_text": "Чёртовы пробки.",
+      "_phraseConfigName": "O1",
+      "_soundConfigName": "None",
+      "_liftOpenness": 0
+    },
+    {
+      "_name": "Д_2:",
+      "_text": "Йоу?",
+      "_phraseConfigName": "O1",
+      "_soundConfigName": "None",
+      "_liftOpenness": 0
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e6669742e95a5459cea19f4f8d078c, type: 3}
+  m_Name: OnlyOfficer
+  m_EditorClassIdentifier: 
+  _name: OnlyOfficer
+  _officerDarkened: 0
+  _killerDarkened: 1
+  _detectiveDarkened: 1
+  _officerSize: 1
+  _killerSize: 0.9
+  _detectiveSize: 0.9

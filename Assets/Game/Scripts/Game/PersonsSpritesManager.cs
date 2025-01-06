@@ -15,6 +15,9 @@ public class PersonsSpritesManager : MonoBehaviour
 
     [SerializeField] private List<PersonPosition> _personPositions;
 
+    private int darkenedColorValue = 180;
+    private int usualColorValue = 255;
+
     [System.Serializable]
     private class PersonPosition
     {
@@ -32,7 +35,6 @@ public class PersonsSpritesManager : MonoBehaviour
         _officerSpriteRenderer = _officer.GetComponent<SpriteRenderer>();
         _detectiveSpriteRenderer = _detective.GetComponent<SpriteRenderer>();
         _killerSpriteRenderer = _killer.GetComponent<SpriteRenderer>();
-       // Debug.Log(_officerSpriteRenderer.enabled);
     }
     public void HideImages()
     {
@@ -41,40 +43,29 @@ public class PersonsSpritesManager : MonoBehaviour
         _killerSpriteRenderer.enabled = false;
     }
 
-    public void SetOfficerTransform(string name)
+    private void SetPersonPosition(Transform personTransform, string name)
     {
-        foreach (PersonPosition personPosition in _personPositions) {
+        foreach (PersonPosition personPosition in _personPositions)
+        {
             if (personPosition.name == name)
             {
-                _officer.transform.position = new Vector3(personPosition.posX, personPosition.posY);
+                personTransform.position = new Vector2(personPosition.posX, personPosition.posY);
                 return;
-            }              
+            }
         }
-        Debug.Log("no such person position");
+    }
+
+    public void SetOfficerTransform(string name)
+    {
+        SetPersonPosition(_officer.transform, name);
     }
     public void SetDetectiveTransform(string name)
     {
-        foreach (PersonPosition personPosition in _personPositions)
-        {
-            if (personPosition.name == name)
-            {
-                _detective.transform.position = new Vector3(personPosition.posX, personPosition.posY);
-                return;
-            }
-        }
-        Debug.Log("no such person position");
+        SetPersonPosition(_detective.transform, name);
     }
     public void SetKillerTransform(string name)
     {
-        foreach (PersonPosition personPosition in _personPositions)
-        {
-            if (personPosition.name == name)
-            {
-                _killer.transform.position = new Vector3(personPosition.posX, personPosition.posY);
-                return;
-            }
-        }
-        Debug.Log("no such person position");
+        SetPersonPosition(_killer.transform, name);
     }
 
     public void SetActivenessOfficer(bool isActive)
@@ -144,5 +135,48 @@ public class PersonsSpritesManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void SetPersonBlackout(SpriteRenderer personSprite, bool isDarkened)
+    {
+        if (isDarkened)
+        {
+            personSprite.color = new Color(darkenedColorValue, darkenedColorValue, darkenedColorValue);
+        }
+        else
+        {
+            personSprite.color = new Color(usualColorValue, usualColorValue, usualColorValue);
+        }
+    }
+
+    public void SetOfficerBlackout(bool isDarkened)
+    {
+        SetPersonBlackout(_officerSpriteRenderer, isDarkened);
+    }
+    public void SetDetectiveBlackout(bool isDarkened)
+    {
+        SetPersonBlackout(_detectiveSpriteRenderer, isDarkened);
+    }
+    public void SetKillerBlackout(bool isDarkened)
+    {
+        SetPersonBlackout(_killerSpriteRenderer, isDarkened);
+    }
+
+    private void SetPersonSize(SpriteRenderer personSprite, float size)
+    {
+        personSprite.size.Set(size, size);
+    }
+
+    public void SetOfficerSize(float size)
+    {
+        SetPersonSize(_officerSpriteRenderer, size);
+    }
+    public void SetDetectiveSize(float size)
+    {
+        SetPersonSize(_detectiveSpriteRenderer, size);
+    }
+    public void SetKillerSize(float size)
+    {
+        SetPersonSize(_killerSpriteRenderer, size);
     }
 }

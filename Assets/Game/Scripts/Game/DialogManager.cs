@@ -1,5 +1,5 @@
-/*using System.Collections;
-using System.Collections.Generic;*/
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 //using UnityEngine.Events;
@@ -14,6 +14,9 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private PersonsSpritesManager _personsSpritesManager;
     [SerializeField] private LiftManager _liftManager;
+    [SerializeField] private List<PhraseConfig> _phraseConfigs;
+    [SerializeField] private List<SoundConfig> _soundConfigs;
+    [SerializeField] private List<BlackoutConfig> _blackoutConfigs;
 
     private string _futureText;
     private int _currentPhraseIndex;
@@ -78,21 +81,39 @@ public class DialogManager : MonoBehaviour
         _liftManager.SetLiftSpriteStatus(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness);
         //_futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text; 
     }
-    private void UpdateImages() 
+    private void UpdateImages()
     {
         _personsSpritesManager.HideImages();
-        //установить позиции 
-        _personsSpritesManager.SetOfficerTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerPosition);
-        _personsSpritesManager.SetDetectiveTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectivePosition);
-        _personsSpritesManager.SetKillerTransform(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerPosition);
+        foreach (PhraseConfig phraseConfig in _phraseConfigs)
+        {
+            if (_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PhraseConfigName == phraseConfig.Name)
+            {
+                _personsSpritesManager.SetOfficerTransform(phraseConfig.OfficerPosition);
+                _personsSpritesManager.SetDetectiveTransform(phraseConfig.DetectivePosition);
+                _personsSpritesManager.SetKillerTransform(phraseConfig.KillerPosition);
 
-        _personsSpritesManager.SetActivenessOfficer(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerActive);
-        _personsSpritesManager.SetActivenessDetective(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectiveActive);
-        _personsSpritesManager.SetActivenessKiller(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerActive);
-        //if (_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerSprite == 
-        _personsSpritesManager.SetOfficerSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].OfficerSprite);
-        _personsSpritesManager.SetDetectiveSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].DetectiveSprite);
-        _personsSpritesManager.SetKillerSprite(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].KillerSprite);
+                _personsSpritesManager.SetActivenessOfficer(phraseConfig.OfficerActive);
+                _personsSpritesManager.SetActivenessDetective(phraseConfig.DetectiveActive);
+                _personsSpritesManager.SetActivenessKiller(phraseConfig.KillerActive);
+
+                _personsSpritesManager.SetOfficerSprite(phraseConfig.OfficerSprite);
+                _personsSpritesManager.SetDetectiveSprite(phraseConfig.DetectiveSprite);
+                _personsSpritesManager.SetKillerSprite(phraseConfig.KillerSprite);
+            }
+        }
+        foreach (BlackoutConfig blackoutConfig in _blackoutConfigs)
+        {
+            if (_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].BlackoutConfigName == blackoutConfig.Name)
+            {
+                _personsSpritesManager.SetOfficerBlackout(blackoutConfig.OfficerDarkened);
+                _personsSpritesManager.SetOfficerSize(blackoutConfig.OfficerSize);
+                _personsSpritesManager.SetDetectiveBlackout(blackoutConfig.DetectiveDarkened);
+                _personsSpritesManager.SetDetectiveSize(blackoutConfig.DetectiveSize);
+                _personsSpritesManager.SetKillerBlackout(blackoutConfig.KillerDarkened);
+                _personsSpritesManager.SetKillerSize(blackoutConfig.KillerSize);
+            }
+        }
+
     }
     public void NextPhrase()
     {
@@ -127,9 +148,13 @@ public class DialogManager : MonoBehaviour
             _prevLiftStatus = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness;
         }
         UpdateImages();
-        _speechPlayer.Play(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].PersonSpeech);
-        _environmentPlayer.Play(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].EnvironmentSound);
-
+        foreach (SoundConfig soundConfig in _soundConfigs)
+        {
+            if (_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].SoundConfigName == soundConfig.Name) {
+                _speechPlayer.Play(soundConfig.PersonSpeech);
+                _environmentPlayer.Play(soundConfig.EnvironmentSound);
+            }
+        }
         _futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text;
         _currentPhraseIndex++;
         _dialogueManager.PlayMyDialogue(_futureText);

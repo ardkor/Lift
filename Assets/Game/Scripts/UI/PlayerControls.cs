@@ -15,7 +15,7 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PauseGameButton _pauseGame;
-    [SerializeField] private ContinueDialogButton _continueGame;
+    [SerializeField] private PauseMenuContinueButton _continueGame;
 
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private DialogManager _dialogManager;

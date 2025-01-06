@@ -5,84 +5,31 @@ using NaughtyAttributes;
 [CreateAssetMenu(menuName = "Game/Data/" + nameof(Dialog))]
 public class Dialog : ScriptableObject
 {
-/*    private class OfficerSpeech
-    {
-        private enum officerSpeech
-        {
-            Officer_low, Officer_high,
-        }
-    }*/
     [System.Serializable]
     public class Phrase
     {
-        [SerializeField] private string _name;
+        private List<string> _Speakers { get { return new List<string>() { "Оффицер:", "Убийца:", "Детектив:"}; } }
+        [Dropdown("_Speakers")] [SerializeField] private string _speaker;
+
         [SerializeField] [TextArea(3, 5)] private string _text;
-        private List<string> _speech { get { return new List<string>() { "None", "Huh", "Killer_mumbling", "Killer_wow" }; } }
-        [Dropdown("_speech")] [SerializeField] private string _personSpeech;
 
-        [SerializeField] private bool _officerActive;
-        [SerializeField] private bool _detectiveActive;
-        [SerializeField] private bool _killerActive;
-        private List<string> _officerSprites { get { return new List<string>() { "Officer_1"}; } }
-        private List<string> _detectiveSprites { get { return new List<string>() { "Detective_1"}; } }
-        private List<string> _killerSprites { get { return new List<string>() { "Killer_1", "Killer_2" }; } }
-
-        [Dropdown("_officerSprites")] [EnableIf("OfficerActive")] [SerializeField] private string _officerSprite;
-        [Dropdown("_detectiveSprites")] [EnableIf("DetectiveActive")] [SerializeField] private string _detectiveSprite;
-        [Dropdown("_killerSprites")] [EnableIf("KillerActive")] [SerializeField] private string _killerSprite;
-
-        [EnableIf("OfficerActive")] [AllowNesting] [SerializeField] private bool _officerFlip;
-        [EnableIf("DetectiveActive")] [AllowNesting] [SerializeField] private bool _detectiveFlip;
-        [EnableIf("KillerActive")] [AllowNesting] [SerializeField] private bool _killerFlip;
-
-        private List<string> _officerPositions { get { return new List<string>() { "Officer_position_1"}; } }
-        private List<string> _detectivePositions { get { return new List<string>() { "Detective_position_1"}; } }
-        private List<string> _killerPositions { get { return new List<string>() { "Killer_position_1"}; } }
-
-        [Dropdown("_officerPositions")] [EnableIf("OfficerActive")] [SerializeField] private string _officerPosition;
-        [Dropdown("_detectivePositions")] [EnableIf("DetectiveActive")] [SerializeField] private string _detectivePosition;
-        [Dropdown("_killerPositions")] [EnableIf("KillerActive")] [SerializeField] private string _killerPosition;
+        private List<string> _blackoutConfigNames { get { return new List<string>() { "O1", "K1", "D1", "KO1", "DK1", "DKO1" }; } }
+        [Dropdown("_blackoutConfigNames")] [SerializeField] private string _blackoutConfigName;
+        private List<string> _phraseConfigNames { get { return new List<string>() { "O1", "K1", "D1", "KO1", "DK1", "DKO1" }; } }
+        [Dropdown("_phraseConfigNames")] [SerializeField] private string _phraseConfigName;
+        private List<string> _soundConfigNames { get { return new List<string>() { "None", "Huh", "Killer_mumbling", "Killer_wow", "Knocking", "Knocking_aggro", "Steps" }; } }
+        [Dropdown("_soundConfigNames")] [SerializeField] private string _soundConfigName;
 
         [SerializeField] private bool _liftOpenness;
-        private List<string> _environmentSounds { get { return new List<string>() { "None", "Knocking", "Knocking_aggro", "Steps" }; } }
-        [Dropdown("_environmentSounds")] [SerializeField] private string _environmentSound;
 
-        //private List<Sound> _sounds;
-
-        public string Name => _name;
+        public string Speaker => _speaker;
         public string Text => _text;
 
-        public bool OfficerActive => _officerActive;
-        public bool DetectiveActive => _detectiveActive;
-        public bool KillerActive => _killerActive;
-
-        public bool OfficerFlip => _officerFlip;
-        public bool DetectiveFlip => _detectiveFlip;
-        public bool KillerFlip => _killerFlip;
-
-        public string OfficerSprite => _officerSprite;
-        public string DetectiveSprite => _detectiveSprite;
-        public string KillerSprite => _killerSprite;
-
-        public string OfficerPosition => _officerPosition;
-        public string DetectivePosition => _detectivePosition;
-        public string KillerPosition => _killerPosition;
-
+        public string BlackoutConfigName => _blackoutConfigName;
+        public string PhraseConfigName => _phraseConfigName;
+        public string SoundConfigName => _soundConfigName;
         public bool LiftOpenness => _liftOpenness;
-        public string PersonSpeech => _personSpeech;
-        public string EnvironmentSound => _environmentSound;
 
-
-       /* [System.Serializable]
-        public class Sound
-        {
-            [SerializeField] private string _name;
-            [SerializeField] private int _delay;
-
-            public string Name => _name;
-            public int Delay => _delay;
-        }
-        public List<Sound> Sounds => _sounds;*/
     }
 
     [SerializeField] private Phrase[] _phrases;

@@ -5,8 +5,8 @@ using ChrisTutorials.Persistent;
 
 public class GameEntryPoint : MonoBehaviour
 {
-    [SerializeField] private Settings _settings;
-    [SerializeField] private FpsLocker _fpsLocker;
+    [SerializeField] private SettingsMenuScreenSettings _settings;
+    [SerializeField] private SettingsMenuFpsLocker _fpsLocker;
     private void Start()
     {
         AudioManager.Instance.SetBeginVolume();
