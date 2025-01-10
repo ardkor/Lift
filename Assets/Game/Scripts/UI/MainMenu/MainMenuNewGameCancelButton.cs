@@ -2,7 +2,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class MainMenuNewGameCancelButton : UIButton
+public class MainMenuNewGameCancelButton : SmallUIButton
 {
     private GameObject _confirmationPanel;
 

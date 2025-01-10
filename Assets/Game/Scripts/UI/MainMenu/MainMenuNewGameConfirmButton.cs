@@ -2,7 +2,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class MainMenuNewGameConfirmButton : UIButton
+public class MainMenuNewGameConfirmButton : SmallUIButton
 {
     private MainMenuNewGameButton _newGameButton;
 

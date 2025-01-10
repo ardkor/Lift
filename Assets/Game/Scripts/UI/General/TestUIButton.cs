@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TestUIButton : Button
 {
-    private const float standartWidth = 160;
-    private const float standartHeigth = 160;
+    private const float standartWidth = 80;
+    private const float standartHeigth = 80;
 
-    private const float pressedWidth = 140;
-    private const float pressedHeigth = 140;
+    private const float pressedWidth = 70;
+    private const float pressedHeigth = 70;
 
     protected Image _image;
     protected RectTransform _rectTransform;

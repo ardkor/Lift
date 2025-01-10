@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PauseMenuToMainConfirmButton : UIButton
+public class PauseMenuToMainConfirmButton : SmallUIButton
 {
     private DialogueManager _dialogueManager;
 
