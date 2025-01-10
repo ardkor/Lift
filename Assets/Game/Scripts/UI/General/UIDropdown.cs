@@ -5,30 +5,24 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class UIDropdown : TMP_Dropdown
+public class UIDropdown : TMP_Dropdown, Pressable
 {
-    [SerializeField] protected Sprite _pressedSprite;
-    [SerializeField] protected Sprite _unpressedSprite;
 
-    protected Image _image;
-    protected ButtonData _buttonData;
+    protected RectTransform _rectTransform;
     override protected void Start()
     {
         base.Start();
-        _image = gameObject.GetComponent<Image>();
-        _buttonData = gameObject.GetComponent<ButtonData>();
-        _pressedSprite = _buttonData.Data.PressedListButton;
-        _unpressedSprite = _buttonData.Data.UnpressedListButton;
+        _rectTransform = gameObject.GetComponent<RectTransform>();
     }
     public override void OnPointerDown(PointerEventData eventData)
     {
-        _image.sprite = _pressedSprite;
-         base.OnPointerDown(eventData);
+        _rectTransform.localScale = new Vector2(Pressable.pressedScale, Pressable.pressedScale);
+        base.OnPointerDown(eventData);
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        _image.sprite = _unpressedSprite;
-         base.OnPointerUp(eventData);
+        _rectTransform.localScale = new Vector2(Pressable.standartScale, Pressable.standartScale);
+        base.OnPointerUp(eventData);
     }
 }

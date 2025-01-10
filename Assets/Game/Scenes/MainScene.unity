@@ -293,7 +293,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000030517578, y: -0.0000076293945}
-  m_SizeDelta: {x: -0.000030518, y: 0}
+  m_SizeDelta: {x: 0.000045776, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &59319687
 MonoBehaviour:
@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 229296246}
   - component: {fileID: 229296243}
   m_Layer: 5
-  m_Name: Resolution Dropdown_1
+  m_Name: Resolution Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1058,8 +1058,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_AlphaFadeSpeed: 0.15
-  _pressedSprite: {fileID: -809417833, guid: 2b8e59dd1665b81459df7241c4495a11, type: 3}
-  _unpressedSprite: {fileID: 848658954, guid: e73183392fb512049a5806c72e6a8f0b, type: 3}
 --- !u!114 &229296244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,7 +1736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &366565154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1931,8 +1929,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0.9999542}
-  m_SizeDelta: {x: -0.0000076294, y: -2}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.00002670288}
+  m_SizeDelta: {x: -0.0000076294, y: -0.000038147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445037200
 MonoBehaviour:
@@ -2056,7 +2054,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.85
+  m_fontSize: 48.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2311,8 +2309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 35, y: 2}
-  m_SizeDelta: {x: 70, y: 150}
+  m_AnchoredPosition: {x: 45, y: 2}
+  m_SizeDelta: {x: 90, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &494970543
 MonoBehaviour:
@@ -2475,7 +2473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &535926011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3109,7 +3107,7 @@ GameObject:
   - component: {fileID: 592185970}
   - component: {fileID: 592185972}
   m_Layer: 5
-  m_Name: Effects Slider_1
+  m_Name: Effects Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4421,7 +4419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808385957}
   m_Layer: 5
-  m_Name: Master Slider_ 1 Fill Area
+  m_Name: Master Slider Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4692,7 +4690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18352063, y: 0.81689477}
   m_AnchorMax: {x: 0.28852063, y: 0.87985265}
-  m_AnchoredPosition: {x: 0.95117, y: 0.99998}
+  m_AnchoredPosition: {x: 0.9511719, y: 0.9999695}
   m_SizeDelta: {x: -1.9023, y: -1.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822973657
@@ -5134,7 +5132,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.3
+  m_fontSize: 50.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5344,7 +5342,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.5
+  m_fontSize: 34.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5613,7 +5611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 943104293}
   m_Layer: 5
-  m_Name: Music Slider_ 1 Fill Area
+  m_Name: Music Slider Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6321,8 +6319,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B, \u0447\u0442\u043E
-    \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438 \u0438\u0437
-    \u0438\u0433\u0440\u044B?"
+    \u0445\u043E\u0442\u0438\u0442\u0435 \u043D\u0430\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u0443\u044E
+    \u0438\u0433\u0440\u0443?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6349,7 +6347,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.7
+  m_fontSize: 31.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9270,10 +9268,10 @@ RectTransform:
   m_Children:
   - {fileID: 611632221}
   - {fileID: 6369018771478103376}
-  - {fileID: 1737217432}
-  - {fileID: 215670482}
-  - {fileID: 733640370}
   - {fileID: 2012317214}
+  - {fileID: 733640370}
+  - {fileID: 215670482}
+  - {fileID: 1737217432}
   - {fileID: 3907680379658307889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10275,7 +10273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1747926034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10758,7 +10756,7 @@ GameObject:
   - component: {fileID: 1805076029}
   - component: {fileID: 1805076028}
   m_Layer: 5
-  m_Name: Button Background_5
+  m_Name: Button Background_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11071,7 +11069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4146461, y: 0.69900006}
   m_AnchorMax: {x: 0.6047079, y: 0.772519}
-  m_AnchoredPosition: {x: 0.039993, y: -0.000062585}
+  m_AnchoredPosition: {x: 0.039993286, y: -0.000061035156}
   m_SizeDelta: {x: -0.079956, y: -0.000083923}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905443739
@@ -11740,7 +11738,7 @@ GameObject:
   - component: {fileID: 2078946219}
   - component: {fileID: 2078946221}
   m_Layer: 5
-  m_Name: Music Slider_1
+  m_Name: Music Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12028,7 +12026,7 @@ GameObject:
   - component: {fileID: 2101519217}
   - component: {fileID: 2101519221}
   m_Layer: 5
-  m_Name: Master Slider_1
+  m_Name: Master Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13126,7 +13124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.178, y: 0.08800001}
   m_AnchorMax: {x: 0.27770647, y: 0.15200001}
-  m_AnchoredPosition: {x: 12.602661, y: -2.5}
+  m_AnchoredPosition: {x: 12.602783, y: -2.5}
   m_SizeDelta: {x: -27, y: -14.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &918620824167361301
@@ -13205,7 +13203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 765687978, guid: 3fae7209ef8937349956594d26d1e588, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bd535466a708cb4cbfe16c485914091, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15299,7 +15297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 765687978, guid: 3fae7209ef8937349956594d26d1e588, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bd535466a708cb4cbfe16c485914091, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

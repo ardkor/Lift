@@ -2,7 +2,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class UIButton : UIBehaviour, IPointerDownHandler, IPointerUpHandler
+public class UIButton : UIBehaviour, IPointerDownHandler, IPointerUpHandler, Pressable
 {
     /*    protected Sprite _pressedSprite;
         protected Sprite _unpressedSprite;
@@ -32,11 +32,14 @@ public class UIButton : UIBehaviour, IPointerDownHandler, IPointerUpHandler
 
         }*/
 
-    protected const float standartWidth = 80;
+/*    protected const float standartWidth = 80;
     protected const float standartHeigth = 80;
 
     protected const float pressedWidth = 70;
-    protected const float pressedHeigth = 70;
+    protected const float pressedHeigth = 70;*/
+
+/*    protected const float standartScale = 1;
+    protected const float pressedScale = 0.8f;*/
 
     protected Image _image;
     protected RectTransform _rectTransform;
@@ -53,13 +56,15 @@ public class UIButton : UIBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        _rectTransform.sizeDelta = new Vector2(pressedWidth, pressedHeigth);
+        //_rectTransform.sizeDelta = new Vector2(pressedWidth, pressedHeigth);
+        _rectTransform.localScale = new Vector2(Pressable.pressedScale, Pressable.pressedScale);
         // base.OnPointerDown(eventData);
     }
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
-        _rectTransform.sizeDelta = new Vector2(standartWidth, standartHeigth);
+        //_rectTransform.sizeDelta = new Vector2(standartWidth, standartHeigth);
+        _rectTransform.localScale = new Vector2(Pressable.standartScale, Pressable.standartScale);
         // base.OnPointerUp(eventData);
 
     }

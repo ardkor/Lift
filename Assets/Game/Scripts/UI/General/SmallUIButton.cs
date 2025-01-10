@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class SmallUIButton : UIButton
 {
-    private new const float standartWidth = 70;
-    private new const float standartHeigth = 70;
-
-    private new const float pressedWidth = 60;
-    private new const float pressedHeigth = 60;
+    /*protected const float standartSmallScale = 1;
+    protected const float pressedSmallScale = 0.8f;
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        _rectTransform.sizeDelta = new Vector2(pressedWidth, pressedHeigth);
-        // base.OnPointerDown(eventData);
+        _rectTransform.localScale = new Vector2(pressedSmallScale, pressedSmallScale);
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        _rectTransform.sizeDelta = new Vector2(standartWidth, standartHeigth);
-        // base.OnPointerUp(eventData);
-
-    }
+        _rectTransform.localScale = new Vector2(standartSmallScale, standartSmallScale);
+    }*/
 }

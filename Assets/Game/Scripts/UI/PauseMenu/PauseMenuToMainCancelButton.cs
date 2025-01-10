@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PauseMenuToMainCancelButton : SmallUIButton
+public class PauseMenuToMainCancelButton : UIButton
 {
     private GameObject _mainMenuEnterConfirmationPanel;
 
