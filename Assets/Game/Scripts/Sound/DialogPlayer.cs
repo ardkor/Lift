@@ -15,7 +15,6 @@ public class DialogPlayer : SoundsPlayer
                 return;
             }
         }
-        Debug.Log("No such sound");
     }
     public void Play(string name)
     {

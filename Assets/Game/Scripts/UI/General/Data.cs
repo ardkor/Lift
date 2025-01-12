@@ -27,6 +27,8 @@ public class Data : MonoBehaviour
     [SerializeField] private Sprite _unpressedListButton;
     [SerializeField] private Sprite _pressedSliderButton;
     [SerializeField] private Sprite _unpressedSliderButton;
+    [SerializeField] private Sprite _lightBulbOff;
+    [SerializeField] private Sprite _lightBulbOn;
 
     public UIManager UIManager => _uIManager;
     public GameObject MainMenu => _mainMenu;
@@ -52,4 +54,6 @@ public class Data : MonoBehaviour
     public Sprite UnpressedListButton => _unpressedListButton;
     public Sprite PressedSliderButton => _pressedSliderButton;
     public Sprite UnpressedSliderButton => _unpressedSliderButton;
+    public Sprite LightBulbOff => _lightBulbOff;
+    public Sprite LightBulbOn => _lightBulbOn;
 }

@@ -10,10 +10,9 @@ public class DialogScenesManager : MonoBehaviour
     [SerializeField] private DialogScene _beginScene;
     [SerializeField] private ButtonsManager _buttonsManager;
 
-
-
     private DialogScene _loadingScene;
-    [HideInInspector] public DialogScene _currentScene { get; private set; }
+    //[HideInInspector] 
+    public DialogScene _currentScene { get; private set; }
 
     private string branchIndex;
     private const string firstSceneIndex = "0";
