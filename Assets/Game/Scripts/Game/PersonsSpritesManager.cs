@@ -15,8 +15,11 @@ public class PersonsSpritesManager : MonoBehaviour
 
     [SerializeField] private List<PersonPosition> _personPositions;
 
-    private int darkenedColorValue = 150;
-    private int usualColorValue = 255;
+    private float _darkenedColorValue = 0.7f;
+    private float _originalColorValue = 1;
+
+    private Color _darkenedColor;
+    private Color _originalColor;
 
     [System.Serializable]
     private class PersonPosition
@@ -35,6 +38,10 @@ public class PersonsSpritesManager : MonoBehaviour
         _officerSpriteRenderer = _officer.GetComponent<SpriteRenderer>();
         _detectiveSpriteRenderer = _detective.GetComponent<SpriteRenderer>();
         _killerSpriteRenderer = _killer.GetComponent<SpriteRenderer>();
+        _originalColor = _officerSpriteRenderer.color;
+
+        _darkenedColor = new Color(_darkenedColorValue, _darkenedColorValue, _darkenedColorValue);
+        _originalColor = new Color(_originalColorValue, _originalColorValue, _originalColorValue);
     }
     public void HideImages()
     {
@@ -141,11 +148,13 @@ public class PersonsSpritesManager : MonoBehaviour
     {
         if (isDarkened)
         {
-            personSprite.color = new Color(darkenedColorValue, darkenedColorValue, darkenedColorValue);
+            //personSprite.color = new Color(darkenedColorValue, darkenedColorValue, darkenedColorValue);
+            personSprite.color = _darkenedColor;
         }
         else
         {
-            personSprite.color = new Color(usualColorValue, usualColorValue, usualColorValue);
+            //personSprite.color = new Color(usualColorValue, usualColorValue, usualColorValue);
+            personSprite.color = _originalColor;
         }
     }
 

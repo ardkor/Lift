@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseGameButton : MonoBehaviour
+public class PauseGameButton : MonoBehaviour, Pressable
 {
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private SpeechPlayer _speechPlayer;
@@ -11,32 +11,27 @@ public class PauseGameButton : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private Collider2D _pauseCollider;
 
-    [SerializeField] private Sprite pressedSprite;
-    [SerializeField] private Sprite unpressedSprite;
     private UIManager _uiManager;
-    private SpriteRenderer spriteRenderer;
     private bool _activeness = true;
 
     private void Awake()
     {
         _uiManager = FindObjectOfType<UIManager>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseDown()
     {
         if (_activeness)
         {
-            spriteRenderer.sprite = pressedSprite;
+            transform.localScale = new Vector2(Pressable.pressedScale, Pressable.pressedScale);
         }
     }
-
 
     private void OnMouseUp()
     {
         if (_activeness)
         {
-            spriteRenderer.sprite = unpressedSprite;
+            transform.localScale = new Vector2(Pressable.standartScale, Pressable.standartScale);
             _uiManager.OpenPanel(_pauseMenu);
             _dialogueManager.PauseDialogPlaying();
             TryPauseMusic();

@@ -6,8 +6,9 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _speakerText;
+
     [SerializeField] private DialogScenesManager _dialogScenesManager;
-    //[SerializeField] private TMP_Text _dialogText;
     [SerializeField] private SpeechPlayer _speechPlayer;
     [SerializeField] private EnvironmentPlayer _environmentPlayer;
     [SerializeField] private DialogueManager _dialogueManager;
@@ -77,9 +78,14 @@ public class DialogManager : MonoBehaviour
     {
         _currentPhraseIndex = 0;
         UpdateImages();
+        UpdateSpeaker();
         _prevLiftStatus = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness;
         _liftManager.SetLiftSpriteStatus(_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness);
         //_futureText = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Text; 
+    }
+    private void UpdateSpeaker()
+    {
+        _speakerText.text = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].Speaker;
     }
     private void UpdateImages()
     {
@@ -107,8 +113,10 @@ public class DialogManager : MonoBehaviour
             {
                 _personsSpritesManager.SetOfficerBlackout(blackoutConfig.OfficerDarkened);
                 _personsSpritesManager.SetOfficerSize(blackoutConfig.OfficerSize);
+
                 _personsSpritesManager.SetDetectiveBlackout(blackoutConfig.DetectiveDarkened);
                 _personsSpritesManager.SetDetectiveSize(blackoutConfig.DetectiveSize);
+
                 _personsSpritesManager.SetKillerBlackout(blackoutConfig.KillerDarkened);
                 _personsSpritesManager.SetKillerSize(blackoutConfig.KillerSize);
             }
@@ -148,6 +156,7 @@ public class DialogManager : MonoBehaviour
             _prevLiftStatus = _dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].LiftOpenness;
         }
         UpdateImages();
+        UpdateSpeaker();
         foreach (SoundConfig soundConfig in _soundConfigs)
         {
             if (_dialogScenesManager._currentScene.Dialog.Phrases[_currentPhraseIndex].SoundConfigName == soundConfig.Name) {

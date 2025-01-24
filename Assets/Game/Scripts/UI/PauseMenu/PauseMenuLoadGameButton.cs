@@ -7,7 +7,7 @@ public class PauseMenuLoadGameButton : UIButton
     private DialogueManager _dialogueManager;
     private PauseCollider _pauseCollider;
     private GameObject _pauseMenu;
-
+    private AudioPlayersManager _audioPlayersManager;
     public void LoadGame()
     {
         _dialogScenesManager.LoadCurrentScene();
@@ -16,6 +16,7 @@ public class PauseMenuLoadGameButton : UIButton
     override protected void Start()
     {
         StartButton();
+        _audioPlayersManager = _buttonData.Data.AudioPlayersManager;
         _dialogScenesManager = _buttonData.Data.DialogScenesManager;
         _pauseCollider = _buttonData.Data.PauseCollider;
         _pauseMenu = _buttonData.Data.PauseMenu;
@@ -27,6 +28,9 @@ public class PauseMenuLoadGameButton : UIButton
         base.OnPointerUp(eventData);
         LoadGame();
         _pauseMenu.SetActive(false);
+        _audioPlayersManager.TryContinueMusic();
+        _audioPlayersManager.TryContinueSpeech();
+        _audioPlayersManager.TryContinueEnvironmentSound();
         _dialogueManager.ContinueDialogPlaying();
         _pauseCollider.DisableCollider();
     }

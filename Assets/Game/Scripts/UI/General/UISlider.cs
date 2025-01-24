@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class UISlider : Slider, Pressable
 {
-    [SerializeField] protected Sprite _pressedSprite;
-    [SerializeField] protected Sprite _unpressedSprite;
+/*    [SerializeField] protected Sprite _pressedSprite;
+    [SerializeField] protected Sprite _unpressedSprite;*/
 
     protected RectTransform _rectTransform;
     protected ButtonData _buttonData;
@@ -15,7 +15,8 @@ public class UISlider : Slider, Pressable
     override protected void  Awake()
     {
         //base.Start();
-        _rectTransform = gameObject.GetComponent<RectTransform>();
+        _buttonData = gameObject.GetComponent<ButtonData>();
+        //_rectTransform = _buttonData.Data.MasterVolumeRect;
     }
     public override void OnPointerDown(PointerEventData eventData)
     {

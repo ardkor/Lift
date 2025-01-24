@@ -12,6 +12,11 @@ public class Data : MonoBehaviour
     [SerializeField] private GameObject _exitConfirmationPanel;
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private GameObject _pauseMenu;
+
+    [SerializeField] private RectTransform _masterVolumeRect;
+    [SerializeField] private RectTransform _musicVolumeRect;
+    [SerializeField] private RectTransform _effectsVolumeRect;
+
     [SerializeField] private DialogScenesManager _dialogScenesManager;
     [SerializeField] private DialogManager _dialogManager;
     [SerializeField] private DialogueManager _dialogueManager;
@@ -20,6 +25,7 @@ public class Data : MonoBehaviour
     [SerializeField] private SpeechPlayer _speechPlayer;
     [SerializeField] private EnvironmentPlayer _environmentPlayer;
     [SerializeField] private MusicPlayer _musicPlayer;
+    [SerializeField] private AudioPlayersManager _audioPlayersManager;
 
     [SerializeField] private Sprite _pressedButton;
     [SerializeField] private Sprite _unpressedButton;
@@ -38,6 +44,9 @@ public class Data : MonoBehaviour
     public GameObject ExitConfirmationPanel => _exitConfirmationPanel;
     public GameObject SettingsMenu => _settingsMenu;
     public GameObject PauseMenu => _pauseMenu;
+    public RectTransform MasterVolumeRect => _masterVolumeRect;
+    public RectTransform MusicVolumeRect => _musicVolumeRect;
+    public RectTransform EffectsVolumeRect => _effectsVolumeRect;
     public DialogScenesManager DialogScenesManager => _dialogScenesManager;
     public DialogManager DialogManager => _dialogManager;
     public DialogueManager DialogueManager => _dialogueManager;
@@ -46,6 +55,7 @@ public class Data : MonoBehaviour
     public SpeechPlayer SpeechPlayer => _speechPlayer;
     public EnvironmentPlayer EnvironmentPlayer => _environmentPlayer;
     public MusicPlayer MusicPlayer => _musicPlayer;
+    public AudioPlayersManager AudioPlayersManager => _audioPlayersManager;
 
 
     public Sprite PressedButton => _pressedButton;

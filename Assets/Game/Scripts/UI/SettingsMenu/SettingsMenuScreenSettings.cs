@@ -8,24 +8,31 @@ using TMPro;
 
 public class SettingsMenuScreenSettings : MonoBehaviour
 {
-    private Resolution[] _resolutions;
-    [SerializeField] private Camera _camera;
     private const float _cameraStandartSize = 5f;
-    private const float _cameraStandartRatio = 1920/1080f;
+    private const float _cameraStandartRatio = 1920 / 1080f;
+    private const int _minimalAccessibleWidth = 900;
+    private const float _resolutionValueMin = 1.77f;
+    private const float _resolutionValueMax = 1.78f;
+
+    [SerializeField] private Camera _camera;
     [SerializeField] private Toggle _toggle;
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
-   // [SerializeField] private TMP_Text _txt;
-    private const int _minimalAccessibleWidth = 960;
+    [SerializeField] private TMP_Text _testText;
+    // [SerializeField] private TMP_Text _txt;
+
     private bool _isFullScreen;
-    List<Resolution> resolutions = new List<Resolution>();
-    void Start()
+    private bool _fullscreenInit;
+    private Resolution[] _resolutions;
+    private List<Resolution> _finalResolutions = new List<Resolution>();
+
+    private void Start()
     {
         _resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         _resolutions = Screen.resolutions;
-       // int currentResolutionIndex = 0;
-       // int optionNum = -1;
-       // RefreshRate maxRefreshRate = _resolutions[0].refreshRateRatio;
+        // int currentResolutionIndex = 0;
+        // int optionNum = -1;
+        // RefreshRate maxRefreshRate = _resolutions[0].refreshRateRatio;
         Resolution prevResolution = _resolutions[0];
         string option;
         /*        for (int i = 0; i < _resolutions.Length; i++)
@@ -39,114 +46,103 @@ public class SettingsMenuScreenSettings : MonoBehaviour
         {
             if (_resolutions[i].width >= _minimalAccessibleWidth)
             {
-                prevResolution = _resolutions[i];
-                break;
+                float _resInd = (float)_resolutions[i].width / (float)_resolutions[i].height;
+                if (_resInd >= _resolutionValueMin && _resInd < _resolutionValueMax)
+                {
+                    prevResolution = _resolutions[i];
+                    break;
+                }
             }
         }
         for (int i = 0; i < _resolutions.Length; i++)
         {
             if (_resolutions[i].width >= _minimalAccessibleWidth)
             {
-                if (_resolutions[i].width == prevResolution.width && _resolutions[i].height == prevResolution.height)
+                float _resInd = (float)_resolutions[i].width / (float)_resolutions[i].height;
+                if (_resInd >= _resolutionValueMin && _resInd < _resolutionValueMax)
                 {
-                    if (_resolutions[i].refreshRateRatio.value > prevResolution.refreshRateRatio.value)
+                    if (_resolutions[i].width == prevResolution.width && _resolutions[i].height == prevResolution.height)
                     {
+                        if (_resolutions[i].refreshRateRatio.value > prevResolution.refreshRateRatio.value)
+                        {
+                            prevResolution = _resolutions[i];
+                        }
+                    }
+                    else
+                    {
+                        option = prevResolution.width + "x" + prevResolution.height + " " + ((int)prevResolution.refreshRateRatio.value) + "Hz";
+                        options.Add(option);
+                        _finalResolutions.Add(prevResolution);
                         prevResolution = _resolutions[i];
                     }
-                }
-                else
-                {
-                    option = prevResolution.width + "x" + prevResolution.height + " " + ((int)prevResolution.refreshRateRatio.value) + "Hz";
-                    options.Add(option);
-                    resolutions.Add(prevResolution);
-                    prevResolution = _resolutions[i];
                 }
             }
         }
         option = prevResolution.width + "x" + prevResolution.height + " " + ((int)prevResolution.refreshRateRatio.value) + "Hz";
         options.Add(option);
-        resolutions.Add(prevResolution);
+        _finalResolutions.Add(prevResolution);
         _resolutionDropdown.AddOptions(options);
-        for (int i = 0; i < resolutions.Count; i++)
+        for (int i = 0; i < _finalResolutions.Count; i++)
         {
             if (PlayerPrefs.HasKey("ResolutionWidth"))
             {
-                if (resolutions[i].width == PlayerPrefs.GetInt("ResolutionWidth"))
+                if (_finalResolutions[i].width == PlayerPrefs.GetInt("ResolutionWidth") && _finalResolutions[i].height == PlayerPrefs.GetInt("ResolutionHeight"))
                 {
-                    //_txt.text = PlayerPrefs.GetInt("ResolutionWidth").ToString();
-                     _resolutionDropdown.value = i;
+                    _resolutionDropdown.value = i;
                 }
             }
             else
             {
-                if (resolutions[i].width == Screen.width
-                        && resolutions[i].height == Screen.height)
+                if (_finalResolutions[i].width == Screen.width
+                        && _finalResolutions[i].height == Screen.height)
                 {
-                    //_txt.text = Screen.width.ToString();
                     _resolutionDropdown.value = i;
-
                 }
             }
         }
-
-        
         _resolutionDropdown.RefreshShownValue();
-        //LoadSettings(); #
-         //Screen.width.ToString();
     }
     private void SetNativeResolution()
     {
-        _isFullScreen = true;
-        _toggle.isOn = true;
-        for (int i = 0; i < resolutions.Count; i++)
+        for (int i = 0; i < _finalResolutions.Count; i++)
         {
-            if (resolutions[i].width == Screen.width
-                        && resolutions[i].height == Screen.height)
+            if (_finalResolutions[i].width == Screen.width
+                        && _finalResolutions[i].height == Screen.height)
                 _resolutionDropdown.value = i;
         }
         _resolutionDropdown.RefreshShownValue();
-       // _txt.text = Screen.width.ToString();
         Screen.SetResolution(Screen.width, Screen.height, _isFullScreen);
     }
     public void SetFullscreen(bool isFullscreen)
     {
-        //Debug.Log(Screen.fullScreen);
-        //Screen.fullScreen = isFullscreen;
+        if (_fullscreenInit)
+        {
+            return;
+        }
         _isFullScreen = isFullscreen;
-        //Resolution resolution = Screen.currentResolution;
-        //_txt.text = Screen.currentResolution.ToString();
-        if (isFullscreen)
-        {
-            SetNativeResolution();
-        }
-        else
-        {
-           // FullScreenMode fullScreenMode = fullScreen;
-            Screen.SetResolution(Screen.width, Screen.height, _isFullScreen);
-            //Screen.SetResolution(resolution.width, resolution.height, fullScreen);
-            //Screen.SetResolution(1280, 920, FullScreenMode.ExclusiveFullScreen);
-        }
+        SetNativeResolution();
         SaveFullscreenPreference();
         SaveResolution(Screen.width, Screen.height);
     }
 
     private void SaveFullscreenPreference()
     {
+        /* PlayerPrefs.SetInt("FullscreenPreference",
+                System.Convert.ToInt32(Screen.fullScreen));*/
         PlayerPrefs.SetInt("FullscreenPreference",
-               System.Convert.ToInt32(Screen.fullScreen));
+               System.Convert.ToInt32(_toggle.isOn));
     }
-
-    public void SetResolution(int resolutionIndex) 
+    public void SetResolution(int resolutionIndex)
     {
-        Resolution resolution = resolutions[resolutionIndex];
-        _isFullScreen = false;
-        _toggle.isOn = false;
+        Resolution resolution = _finalResolutions[resolutionIndex];
+        //_isFullScreen = false;
+        //_toggle.isOn = false;
         Screen.SetResolution(resolution.width, resolution.height, _isFullScreen);
         SaveFullscreenPreference();
         SaveResolution(resolution.width, resolution.height);
         _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
     }
- 
+
     private void SaveResolution(int resolutionWidth, int resolutionHeight)
     {
         PlayerPrefs.SetInt("ResolutionWidth", resolutionWidth);
@@ -155,28 +151,35 @@ public class SettingsMenuScreenSettings : MonoBehaviour
 
     public void LoadSettings()
     {
+        _fullscreenInit = true;
         if (PlayerPrefs.HasKey("ResolutionHeight"))
         {
             if (PlayerPrefs.HasKey("FullscreenPreference"))
             {
                 if (System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference")))
                 {
+                    _isFullScreen = true;
+                    _toggle.isOn = true;
                     SetNativeResolution();
                     _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
+                    _fullscreenInit = false;
                     return;
                 }
                 else
                 {
                     _isFullScreen = false;
                     Screen.SetResolution(PlayerPrefs.GetInt("ResolutionWidth"), PlayerPrefs.GetInt("ResolutionHeight"), _isFullScreen);
-                    _toggle.isOn = false;
                     _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
+                    _fullscreenInit = false;
                     return;
                 }
 
             }
         }
+        _isFullScreen = true;
+        _toggle.isOn = true;
         SetNativeResolution();
         _camera.orthographicSize = _cameraStandartSize * _cameraStandartRatio / Screen.width * Screen.height;
+        _fullscreenInit = false;
     }
 }

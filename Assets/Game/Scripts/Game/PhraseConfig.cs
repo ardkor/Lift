@@ -22,9 +22,9 @@ public class PhraseConfig : ScriptableObject
     [EnableIf("DetectiveActive")] [AllowNesting] [SerializeField] private bool _detectiveFlip;
     [EnableIf("KillerActive")] [AllowNesting] [SerializeField] private bool _killerFlip;
 
-    private List<string> _officerPositions { get { return new List<string>() { "Officer_position_1" }; } }
-    private List<string> _detectivePositions { get { return new List<string>() { "Detective_position_1" }; } }
-    private List<string> _killerPositions { get { return new List<string>() { "Killer_position_1" }; } }
+    private List<string> _officerPositions { get { return new List<string>() { "Officer_position_1", "Officer_position_center", "Officer_position_pair_left", "Officer_position_triple" }; } }
+    private List<string> _detectivePositions { get { return new List<string>() { "Detective_position_1", "Detective_position_center", "Detective_position_pair_right", "Detective_position_triple" }; } }
+    private List<string> _killerPositions { get { return new List<string>() { "Killer_position_1", "Killer_position_center", "Killer_position_pair_left", "Killer_position_pair_right", "Killer_position_triple" }; } }
 
     [Dropdown("_officerPositions")] [EnableIf("OfficerActive")] [SerializeField] private string _officerPosition;
     [Dropdown("_detectivePositions")] [EnableIf("DetectiveActive")] [SerializeField] private string _detectivePosition;

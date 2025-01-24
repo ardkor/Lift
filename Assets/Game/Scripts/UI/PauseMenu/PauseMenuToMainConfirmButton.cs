@@ -7,6 +7,8 @@ public class PauseMenuToMainConfirmButton : UIButton
 
     private PauseCollider _pauseCollider;
 
+    private AudioPlayersManager _audioPlayersManager;
+
     private GameObject _pauseMenu;
     private GameObject _mainMenu;
     private GameObject _gameScene;
@@ -15,6 +17,7 @@ public class PauseMenuToMainConfirmButton : UIButton
     override protected void Start()
     {
         StartButton();
+        _audioPlayersManager = _buttonData.Data.AudioPlayersManager;
         _pauseCollider = _buttonData.Data.PauseCollider;
         _pauseMenu = _buttonData.Data.PauseMenu;
         _dialogueManager = _buttonData.Data.DialogueManager;
@@ -30,6 +33,9 @@ public class PauseMenuToMainConfirmButton : UIButton
         _mainMenuEnterConfirmationPanel.SetActive(false);
         _mainMenu.SetActive(true);
         _gameScene.SetActive(false);
+        _audioPlayersManager.TryContinueMusic();
+        _audioPlayersManager.TryContinueSpeech();
+        _audioPlayersManager.TryContinueEnvironmentSound();
         _dialogueManager.ContinueDialogPlaying();
         _pauseCollider.DisableCollider();
     }
