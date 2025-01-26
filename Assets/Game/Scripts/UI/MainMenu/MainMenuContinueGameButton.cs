@@ -21,14 +21,21 @@ public class MainMenuContinueGameButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _mainMenu = _buttonData.Data.MainMenu;
-        _gameScreen = _buttonData.Data.GameScreen;
-        _dialogScenesManager = _buttonData.Data.DialogScenesManager;
+        _mainMenu = _uiData.Data.MainMenu;
+        _gameScreen = _uiData.Data.GameScreen;
+        _dialogScenesManager = _uiData.Data.DialogScenesManager;
     }
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         ContinueGame();
     }
     public void ContinueGame()

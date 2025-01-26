@@ -12,15 +12,26 @@ public class MainMenuNewGameButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _mainMenu = _buttonData.Data.MainMenu;
-        _gameScreen = _buttonData.Data.GameScreen;
-        _confirmationPanel = _buttonData.Data.NewGameConfirmationPanel;
-        _dialogScenesManager = _buttonData.Data.DialogScenesManager;
+        _mainMenu = _uiData.Data.MainMenu;
+        _gameScreen = _uiData.Data.GameScreen;
+        _confirmationPanel = _uiData.Data.NewGameConfirmationPanel;
+        _dialogScenesManager = _uiData.Data.DialogScenesManager;
     }
-
+    public override void OnPointerDown(PointerEventData eventData)
+    {
+        DoOnPointerDown();
+    }
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         TryStartNewGame();
     }
     public void TryStartNewGame()

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PersonsSpritesManager : MonoBehaviour
 {
+    private const float _darkenedColorValue = 0.7f;
+    private const float _originalColorValue = 1;
+
     [SerializeField] private Sprite[] _officerSprites;
     [SerializeField] private Sprite[] _detectiveSprites;
     [SerializeField] private Sprite[] _killerSprites;
@@ -14,9 +17,6 @@ public class PersonsSpritesManager : MonoBehaviour
     [SerializeField] private GameObject _killer;
 
     [SerializeField] private List<PersonPosition> _personPositions;
-
-    private float _darkenedColorValue = 0.7f;
-    private float _originalColorValue = 1;
 
     private Color _darkenedColor;
     private Color _originalColor;
@@ -148,12 +148,10 @@ public class PersonsSpritesManager : MonoBehaviour
     {
         if (isDarkened)
         {
-            //personSprite.color = new Color(darkenedColorValue, darkenedColorValue, darkenedColorValue);
             personSprite.color = _darkenedColor;
         }
         else
         {
-            //personSprite.color = new Color(usualColorValue, usualColorValue, usualColorValue);
             personSprite.color = _originalColor;
         }
     }
@@ -173,7 +171,7 @@ public class PersonsSpritesManager : MonoBehaviour
 
     private void SetPersonSize(SpriteRenderer personSprite, float size)
     {
-        personSprite.size.Set(size, size);
+        personSprite.transform.localScale = new Vector2(size, size);
     }
 
     public void SetOfficerSize(float size)

@@ -7,6 +7,6 @@ public class SettingsMenuEffectsSlider : UISlider
     override protected void Awake()
     {
         base.Awake();
-        _rectTransform = _buttonData.Data.EffectsVolumeRect;
+        _rectTransform = _uiData.Data.EffectsVolumeRect;
     }
 }

@@ -10,12 +10,19 @@ public class PauseMenuSettingsButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _settingsMenu = _buttonData.Data.SettingsMenu;
+        _settingsMenu = _uiData.Data.SettingsMenu;
     }
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         _settingsMenu.SetActive(true);
     }
 }

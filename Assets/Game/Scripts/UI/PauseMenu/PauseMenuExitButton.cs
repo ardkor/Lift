@@ -8,12 +8,19 @@ public class PauseMenuExitButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _exitConfirmationPanel = _buttonData.Data.ExitConfirmationPanel;
+        _exitConfirmationPanel = _uiData.Data.ExitConfirmationPanel;
     }
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         _exitConfirmationPanel.SetActive(true);
     }
 }

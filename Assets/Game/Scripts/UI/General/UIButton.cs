@@ -1,21 +1,23 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
+using ChrisTutorials.Persistent;
 
+[RequireComponent(typeof(UIData))]
 public class UIButton : UIBehaviour, IPointerDownHandler, IPointerUpHandler, Pressable
 {
     /*    protected Sprite _pressedSprite;
         protected Sprite _unpressedSprite;
 
         protected Image _image;
-        protected ButtonData _buttonData;
+        protected ButtonData _uiData;
         public void StartButton()
         {
             //base.Start();
             _image = gameObject.GetComponent<Image>();
-            _buttonData = gameObject.GetComponent<ButtonData>();
-            _pressedSprite = _buttonData.Data.PressedButton;
-            _unpressedSprite = _buttonData.Data.UnpressedButton;
+            _uiData = gameObject.GetComponent<ButtonData>();
+            _pressedSprite = _uiData.Data.PressedButton;
+            _unpressedSprite = _uiData.Data.UnpressedButton;
         }
 
         public virtual void OnPointerDown(PointerEventData eventData)
@@ -41,31 +43,40 @@ public class UIButton : UIBehaviour, IPointerDownHandler, IPointerUpHandler, Pre
 /*    protected const float standartScale = 1;
     protected const float pressedScale = 0.8f;*/
 
-    protected Image _image;
+    //protected Image _image;
     protected RectTransform _rectTransform;
-    protected ButtonData _buttonData;
-
+    protected UIData _uiData;
+    protected AudioClip _buttonPushedClip;
+    protected GameObject _buttonPushedSource;
     public void StartButton()
     {
         //base.Start();
-        _image = gameObject.GetComponent<Image>();
-        _buttonData = gameObject.GetComponent<ButtonData>();
-        _image = gameObject.GetComponent<Image>();
+        //_image = gameObject.GetComponent<Image>();
+        _uiData = gameObject.GetComponent<UIData>();
+        _buttonPushedClip = _uiData.Data.ButtonPushedClip;
+        _buttonPushedSource = _uiData.Data.ButtonPushedSource;
         _rectTransform = gameObject.GetComponent<RectTransform>();
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
+        DoOnPointerDown();
         //_rectTransform.sizeDelta = new Vector2(pressedWidth, pressedHeigth);
-        _rectTransform.localScale = new Vector2(Pressable.pressedScale, Pressable.pressedScale);
         // base.OnPointerDown(eventData);
     }
-
+    public virtual void DoOnPointerDown()
+    {
+        _rectTransform.localScale = new Vector2(Pressable.pressedScale, Pressable.pressedScale);
+    }
     public virtual void OnPointerUp(PointerEventData eventData)
     {
+        DoOnPointerUp();
         //_rectTransform.sizeDelta = new Vector2(standartWidth, standartHeigth);
-        _rectTransform.localScale = new Vector2(Pressable.standartScale, Pressable.standartScale);
         // base.OnPointerUp(eventData);
-
+    }
+    public virtual void DoOnPointerUp()
+    {
+        AudioManager.Instance.Play(_buttonPushedClip, _buttonPushedSource.transform, 1f, 1f);
+        _rectTransform.localScale = new Vector2(Pressable.standartScale, Pressable.standartScale);
     }
 }

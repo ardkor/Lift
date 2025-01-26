@@ -16,6 +16,6 @@ MonoBehaviour:
   _officerDarkened: 1
   _killerDarkened: 1
   _detectiveDarkened: 0
-  _officerSize: 0.9
-  _killerSize: 0.9
+  _officerSize: 0.95
+  _killerSize: 0.95
   _detectiveSize: 1

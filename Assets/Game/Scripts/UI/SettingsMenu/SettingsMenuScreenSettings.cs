@@ -113,6 +113,7 @@ public class SettingsMenuScreenSettings : MonoBehaviour
         _resolutionDropdown.RefreshShownValue();
         Screen.SetResolution(Screen.width, Screen.height, _isFullScreen);
     }
+    //Inspector function
     public void SetFullscreen(bool isFullscreen)
     {
         if (_fullscreenInit)
@@ -122,9 +123,15 @@ public class SettingsMenuScreenSettings : MonoBehaviour
         _isFullScreen = isFullscreen;
         SetNativeResolution();
         SaveFullscreenPreference();
-        SaveResolution(Screen.width, Screen.height);
+        //SaveResolution(Screen.width, Screen.height);
     }
-
+    public void ChangeFullscreen()
+    {
+        _toggle.isOn = !_toggle.isOn;
+/*        _isFullScreen = !_isFullScreen;
+        SetNativeResolution();
+        SaveFullscreenPreference();*/
+    }
     private void SaveFullscreenPreference()
     {
         /* PlayerPrefs.SetInt("FullscreenPreference",

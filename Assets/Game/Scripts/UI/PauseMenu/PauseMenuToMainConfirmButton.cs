@@ -17,18 +17,25 @@ public class PauseMenuToMainConfirmButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _audioPlayersManager = _buttonData.Data.AudioPlayersManager;
-        _pauseCollider = _buttonData.Data.PauseCollider;
-        _pauseMenu = _buttonData.Data.PauseMenu;
-        _dialogueManager = _buttonData.Data.DialogueManager;
-        _mainMenu = _buttonData.Data.MainMenu;
-        _gameScene = _buttonData.Data.GameScreen;
-        _mainMenuEnterConfirmationPanel = _buttonData.Data.MainMenuEnterConfirmationPanel;
+        _audioPlayersManager = _uiData.Data.AudioPlayersManager;
+        _pauseCollider = _uiData.Data.PauseCollider;
+        _pauseMenu = _uiData.Data.PauseMenu;
+        _dialogueManager = _uiData.Data.DialogueManager;
+        _mainMenu = _uiData.Data.MainMenu;
+        _gameScene = _uiData.Data.GameScreen;
+        _mainMenuEnterConfirmationPanel = _uiData.Data.MainMenuEnterConfirmationPanel;
     }
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         _pauseMenu.SetActive(false);
         _mainMenuEnterConfirmationPanel.SetActive(false);
         _mainMenu.SetActive(true);

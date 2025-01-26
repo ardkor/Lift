@@ -12,14 +12,14 @@ public class TestUIButton : Button
 
     protected Image _image;
     protected RectTransform _rectTransform;
-    protected ButtonData _buttonData;
+    protected UIData _uiData;
 
     protected override void Start()
     {
         //base.Start();
         _image = gameObject.GetComponent<Image>();
         _rectTransform = gameObject.GetComponent<RectTransform>();
-        _buttonData = gameObject.GetComponent<ButtonData>();
+        _uiData = gameObject.GetComponent<UIData>();
     }
 
     public override void OnPointerDown(PointerEventData eventData)

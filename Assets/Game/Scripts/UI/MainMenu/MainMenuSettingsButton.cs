@@ -10,15 +10,20 @@ public class MainMenuSettingsButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _settingsMenu = _buttonData.Data.SettingsMenu;
-        _uIManager = _buttonData.Data.UIManager;
+        _settingsMenu = _uiData.Data.SettingsMenu;
+        _uIManager = _uiData.Data.UIManager;
     }
-
-
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         _uIManager.OpenPanel(_settingsMenu);
     }
 }

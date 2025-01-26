@@ -7,6 +7,6 @@ public class SettingsMenuMusicSlider : UISlider
     override protected void Awake()
     {
         base.Awake();
-        _rectTransform = _buttonData.Data.MusicVolumeRect;
+        _rectTransform = _uiData.Data.MusicVolumeRect;
     }
 }

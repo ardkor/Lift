@@ -6,9 +6,10 @@ using UnityEngine.EventSystems;
 
 public class FloorUIButton : UIButton
 {
-    [SerializeField] private int _num;
-    [SerializeField] private Data _data;
     public int Num => _num;
+
+    [SerializeField] private int _num;
+
     private DialogScenesManager _dialogScenesManager;
     private bool _activeness;
 
@@ -23,16 +24,25 @@ public class FloorUIButton : UIButton
     }
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if (_activeness)
-        {
-            _rectTransform.localScale = new Vector2(Pressable.pressedScale, Pressable.pressedScale);
-        }
+        DoOnPointerDown();
     }
-
-    public override void OnPointerUp(PointerEventData eventData)
+    public override void DoOnPointerDown()
     {
         if (_activeness)
         {
+            base.DoOnPointerDown();
+            _rectTransform.localScale = new Vector2(Pressable.pressedScale, Pressable.pressedScale);
+        }
+    }
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        if (_activeness)
+        {
+            base.DoOnPointerUp();
             _rectTransform.localScale = new Vector2(Pressable.standartScale, Pressable.standartScale);
             _dialogScenesManager.NextDialog(_num);
         }

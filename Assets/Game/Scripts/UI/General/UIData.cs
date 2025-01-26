@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ButtonData : MonoBehaviour
+public class UIData : MonoBehaviour
 {
     public Data Data;
 }

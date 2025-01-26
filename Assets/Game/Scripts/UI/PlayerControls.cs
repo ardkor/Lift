@@ -17,7 +17,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private Collider2D _pauseCollider;
 
     [SerializeField] private UIManager _uiManager;
-    [SerializeField] private PauseGameButton _pauseGame;
+    //[SerializeField] private PauseGameButton _pauseGame;
     [SerializeField] private AudioPlayersManager _audioPlayersManager;
 
     [SerializeField] private DialogueManager _dialogueManager;
@@ -93,8 +93,8 @@ public class PlayerControls : MonoBehaviour
                 {
                     _dialogueManager.PauseDialogPlaying();
                     _uiManager.OpenPanel(_pauseMenu);
-                    _pauseGame.TryPauseMusic();
-                    _pauseGame.TryPauseSpeech();
+                    _audioPlayersManager.TryPauseMusic();
+                    _audioPlayersManager.TryPauseSpeech();
                     _pauseCollider.enabled = true;
                     return;
                 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AudioPlayersManager : MonoBehaviour
 {
-    private SpeechPlayer _speechPlayer;
-    private EnvironmentPlayer _environmentPlayer;
-    private MusicPlayer _musicPlayer;
+    [SerializeField] private SpeechPlayer _speechPlayer;
+    [SerializeField] private EnvironmentPlayer _environmentPlayer;
+    [SerializeField] private MusicPlayer _musicPlayer;
     public void TryContinueMusic()
     {
         _musicPlayer.TryContinueMusic();
@@ -20,5 +20,20 @@ public class AudioPlayersManager : MonoBehaviour
     public void TryContinueEnvironmentSound()
     {
         _environmentPlayer.TryContinue();
+    }
+
+    public void TryPauseMusic()
+    {
+        _musicPlayer.TryPauseMusic();
+    }
+
+    public void TryPauseSpeech()
+    {
+        _speechPlayer.TryPause();
+    }
+
+    public void TryPauseEnvironmentSound()
+    {
+        _environmentPlayer.TryPause();
     }
 }

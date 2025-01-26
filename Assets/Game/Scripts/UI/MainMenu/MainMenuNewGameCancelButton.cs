@@ -9,12 +9,19 @@ public class MainMenuNewGameCancelButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _confirmationPanel = _buttonData.Data.NewGameConfirmationPanel;
+        _confirmationPanel = _uiData.Data.NewGameConfirmationPanel;
     }
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         _confirmationPanel.SetActive(false);
     }
 }

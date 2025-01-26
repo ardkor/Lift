@@ -10,12 +10,19 @@ public class PauseMenuToMainButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _mainMenuEnterConfirmationPanel = _buttonData.Data.MainMenuEnterConfirmationPanel;
+        _mainMenuEnterConfirmationPanel = _uiData.Data.MainMenuEnterConfirmationPanel;
     }
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         _mainMenuEnterConfirmationPanel.SetActive(true);
     }
 }

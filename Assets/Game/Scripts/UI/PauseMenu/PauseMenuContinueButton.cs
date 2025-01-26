@@ -13,15 +13,22 @@ public class PauseMenuContinueButton : UIButton
     override protected void Start()
     {
         StartButton();
-        _audioPlayersManager = _buttonData.Data.AudioPlayersManager;
-        _pauseMenu = _buttonData.Data.PauseMenu;
-        _dialogueManager = _buttonData.Data.DialogueManager;
-        _pauseCollider = _buttonData.Data.PauseCollider;
+        _audioPlayersManager = _uiData.Data.AudioPlayersManager;
+        _pauseMenu = _uiData.Data.PauseMenu;
+        _dialogueManager = _uiData.Data.DialogueManager;
+        _pauseCollider = _uiData.Data.PauseCollider;
     }
-
+    public override void DoOnPointerDown()
+    {
+        base.DoOnPointerDown();
+    }
     public override void OnPointerUp(PointerEventData eventData)
     {
-        base.OnPointerUp(eventData);
+        DoOnPointerUp();
+    }
+    public override void DoOnPointerUp()
+    {
+        base.DoOnPointerUp();
         _pauseMenu.SetActive(false);
         _audioPlayersManager.TryContinueMusic();
         _audioPlayersManager.TryContinueSpeech();

@@ -27,6 +27,9 @@ public class Data : MonoBehaviour
     [SerializeField] private MusicPlayer _musicPlayer;
     [SerializeField] private AudioPlayersManager _audioPlayersManager;
 
+    [SerializeField] private AudioClip _buttonPushedClip;
+    [SerializeField] private GameObject _buttonPushedSource;
+
     [SerializeField] private Sprite _pressedButton;
     [SerializeField] private Sprite _unpressedButton;
     [SerializeField] private Sprite _pressedListButton;
@@ -56,6 +59,8 @@ public class Data : MonoBehaviour
     public EnvironmentPlayer EnvironmentPlayer => _environmentPlayer;
     public MusicPlayer MusicPlayer => _musicPlayer;
     public AudioPlayersManager AudioPlayersManager => _audioPlayersManager;
+    public AudioClip ButtonPushedClip => _buttonPushedClip;
+    public GameObject ButtonPushedSource => _buttonPushedSource;
 
 
     public Sprite PressedButton => _pressedButton;
